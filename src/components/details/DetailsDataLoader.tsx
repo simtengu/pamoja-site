@@ -149,13 +149,13 @@ export default function DetailsDataLoader({ id }: { id: string }) {
           <div className="space-y-16">
             <PropertyGallery photos={property.photos} name={property.name} />
             <PropertyOverview property={property} />
+            <PropertyAmenities property={property} />
             <PropertyRooms 
               rooms={rooms} 
               propertyName={property.name} 
               typesMap={typesMap} 
               standardsMap={standardsMap} 
             />
-            <PropertyAmenities property={property} />
             <PropertyDining />
             <PropertyRules />
             <PropertyLocationMap property={property} />
