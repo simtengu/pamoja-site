@@ -75,13 +75,13 @@ export default function Experiences() {
             key={key}
             src={content[key].image} 
             alt={content[key].title} 
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out filter brightness-50 ${
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out filter brightness-75 ${
               activeTab === key ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           />
         ))}
         {/* Overlay gradient for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-safari-dark/95 via-safari-dark/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-safari-dark/80 via-safari-dark/50 to-transparent"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 flex flex-col min-h-[700px]">

@@ -45,7 +45,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 animate-[slideUp_1s_ease-out_0.9s_both]">
           <Link 
             href="/accommodations" 
-            className="px-8 py-4 bg-transparent border border-white text-white uppercase tracking-wider text-sm font-bold hover:bg-white hover:text-safari-dark transition-all duration-300"
+            className="px-8 py-4 bg-white text-safari-dark uppercase tracking-wider text-sm font-bold hover:bg-transparent hover:border hover:border-white hover:text-white transition-all duration-300"
           >
             Explore Lodges
           </Link>

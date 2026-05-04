@@ -27,31 +27,46 @@ export function PropertyOverview({ property }: { property?: Property }) {
   );
 }
 
-export function PropertyAmenities({ property }: { property?: Property }) {
-  // If property doesn't have amenities, use a generic fallback list for design
-  const defaultAmenities = [
-    { name: "High-Speed Wi-Fi", icon: <Wifi className="w-5 h-5" /> },
-    { name: "Electronic Safe", icon: <ShieldCheck className="w-5 h-5" /> },
-    { name: "Deep Bathtub", icon: <Bath className="w-5 h-5" /> },
-  ];
+import { detailedAmenities } from "@/data/amenities";
 
-  const amenitiesList = property?.amenities?.map(name => ({
-    name,
-    icon: <CheckCircle className="w-5 h-5 text-safari-accent" />
-  })) || defaultAmenities;
+export function PropertyAmenities({ property }: { property?: Property }) {
+  if (!property?.id) return null;
+
+  const data = detailedAmenities.find(d => d.propertyId === property.id);
+  
+  if (!data || !data.amenities || data.amenities.length === 0) {
+    return null;
+  }
 
   return (
     <div className="border-t border-gray-100 pt-16">
-      <h2 className="text-3xl font-serif text-safari-dark mb-10">Property Amenities</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {amenitiesList.map(amenity => (
-          <div key={amenity.name} className="flex flex-col items-center justify-center p-6 bg-gray-50 border border-gray-200 rounded-sm hover:-translate-y-1 transition-transform cursor-default group">
-            <div className="text-safari-accent group-hover:text-safari-gold transition-colors mb-3">
-              {amenity.icon}
-            </div>
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-700 text-center">
-              {amenity.name}
-            </span>
+      <h2 className="text-3xl font-serif text-safari-dark mb-10">Amenities & Facilities</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {data.amenities.map((amenity, idx) => (
+          <div 
+            key={idx} 
+            className="relative aspect-square overflow-hidden group rounded-sm shadow-lg bg-safari-dark"
+            data-aos="fade-up"
+            data-aos-delay={idx * 50}
+          >
+             <img 
+               src={amenity.image} 
+               alt={amenity.title}
+               className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-700 ease-in-out"
+               onError={(e) => {
+                 (e.target as HTMLImageElement).src = "/images/placeholder.jpeg";
+               }}
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-safari-dark/90 via-safari-dark/40 to-transparent" />
+             <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl md:text-2xl font-serif text-white mb-3 tracking-wide">{amenity.title}</h3>
+                <p className="text-xs md:text-sm text-gray-300 font-light leading-relaxed line-clamp-3">
+                  {amenity.description}
+                </p>
+             </div>
+             
+             {/* Decorative border */}
+             <div className="absolute inset-4 border border-white/10 pointer-events-none" />
           </div>
         ))}
       </div>

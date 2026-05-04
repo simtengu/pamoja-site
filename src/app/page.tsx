@@ -5,6 +5,7 @@ import AccommodationsList from "@/components/home/AccommodationsList";
 import RoomsPreview from "@/components/home/RoomsPreview";
 import Experiences from "@/components/home/Experiences";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import HomeOffers from "@/components/home/HomeOffers";
 import Reviews from "@/components/home/Reviews";
 import NewsBlog from "@/components/home/NewsBlog";
 import HomeGallery from "@/components/home/HomeGallery";
@@ -32,6 +33,9 @@ export default function Home() {
       
       {/* Why choose Pamoja */}
       <WhyChooseUs />
+
+      {/* Special Offers Section */}
+      <HomeOffers />
 
       {/* Guest Reviews Slider */}
       <Reviews />
