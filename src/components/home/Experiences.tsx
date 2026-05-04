@@ -1,17 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Utensils, Waves, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Experiences() {
   const [activeTab, setActiveTab] = useState("dining");
-
-  const tabs = [
-    { id: "dining", label: "Culinary Journey", icon: <Utensils className="w-4 h-4 mr-2" /> },
-    { id: "pools", label: "Infinity Pools", icon: <Waves className="w-4 h-4 mr-2" /> },
-    { id: "wellness", label: "Spa & Wellness", icon: <Sparkles className="w-4 h-4 mr-2" /> },
-  ];
 
   const content: Record<string, { title: string, subtitle: string, desc: string, image: string, highlights: {name: string, detail: string}[] }> = {
     dining: {
@@ -49,6 +43,26 @@ export default function Experiences() {
     }
   };
 
+  const tabKeys = Object.keys(content);
+  const currentIndex = tabKeys.indexOf(activeTab);
+
+  const handleNext = useCallback(() => {
+    const nextIndex = (currentIndex + 1) % tabKeys.length;
+    setActiveTab(tabKeys[nextIndex]);
+  }, [currentIndex, tabKeys]);
+
+  const handlePrev = useCallback(() => {
+    const prevIndex = (currentIndex - 1 + tabKeys.length) % tabKeys.length;
+    setActiveTab(tabKeys[prevIndex]);
+  }, [currentIndex, tabKeys]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000); // Auto-play every 5 seconds
+    return () => clearInterval(interval);
+  }, [handleNext]);
+
   const activeContent = content[activeTab];
 
   return (
@@ -70,10 +84,10 @@ export default function Experiences() {
         <div className="absolute inset-0 bg-gradient-to-r from-safari-dark/95 via-safari-dark/80 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 flex flex-col md:flex-row min-h-[700px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 flex flex-col min-h-[700px]">
         
-        {/* Left Content Area */}
-        <div className="w-full md:w-1/2 flex flex-col pr-0 md:pr-12 lg:pr-24">
+        {/* Top Content Area */}
+        <div className="flex-1 w-full md:w-1/2 flex flex-col pr-0 md:pr-12 lg:pr-24">
           
           <span className="text-safari-gold font-sans tracking-[0.2em] font-bold uppercase text-xs mb-4 block animate-[fadeIn_0.5s_ease-out]">
             {activeContent.subtitle}
@@ -94,54 +108,37 @@ export default function Experiences() {
             ))}
           </div>
 
+        </div>
+
+        {/* Bottom Navigation */}
+        <div className="w-full flex items-center justify-between mt-12 pt-8 border-t border-white/10">
           <Link 
             href="/about" 
-            className="inline-flex items-center gap-2 text-safari-gold font-bold uppercase tracking-widest text-xs hover:text-white transition-colors group mt-auto self-start"
+            className="inline-flex items-center gap-2 text-safari-gold font-bold uppercase tracking-widest text-xs hover:text-white transition-colors group"
           >
             Discover More 
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
 
-        </div>
-
-        {/* Right Tab Navigation */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-end mt-16 md:mt-0">
-          <div className="bg-safari-dark/40 backdrop-blur-md border border-white/10 rounded-sm p-2 flex flex-col w-full max-w-sm ml-auto space-y-2">
-            
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center justify-between w-full px-6 py-5 text-left transition-all duration-300 rounded-sm group ${
-                  activeTab === tab.id 
-                    ? "bg-safari-gold text-safari-dark font-bold shadow-lg scale-[1.02]" 
-                    : "text-white hover:bg-white/10"
-                }`}
-              >
-                <span className="flex items-center text-sm uppercase tracking-widest">
-                  {tab.icon} {tab.label}
-                </span>
-                <ChevronIndicator active={activeTab === tab.id} />
-              </button>
-            ))}
-            
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={handlePrev}
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 hover:bg-white/10 hover:border-white/50 transition-colors text-white group"
+              aria-label="Previous experience"
+            >
+              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
+            <button 
+              onClick={handleNext}
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 hover:bg-white/10 hover:border-white/50 transition-colors text-white group"
+              aria-label="Next experience"
+            >
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </button>
           </div>
         </div>
 
       </div>
     </section>
-  );
-}
-
-function ChevronIndicator({ active }: { active: boolean }) {
-  return (
-    <svg 
-      className={`w-5 h-5 transition-transform duration-300 ${active ? "translate-x-1" : "opacity-0 -translate-x-2"}`} 
-      fill="none" 
-      viewBox="0 0 24 24" 
-      stroke="currentColor"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
   );
 }
