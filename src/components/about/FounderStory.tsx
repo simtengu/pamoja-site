@@ -43,14 +43,14 @@ export default function FounderStory() {
             </span>
 
             <h2 className="text-4xl md:text-5xl font-serif text-safari-dark mb-8 leading-tight">
-              A Dream Born Beneath the Baobab
+              A Dream Born at the Foot of Ngorongoro Forest
             </h2>
 
             {/* Pull Quote */}
             <div className="relative border-l-4 border-safari-gold pl-6 mb-10 py-2">
               <Quote className="w-8 h-8 text-safari-gold/30 absolute -top-2 -left-1" />
-              <p className="text-2xl md:text-3xl font-serif text-safari-dark italic leading-snug">
-                "I didn't build a business — I built a way for the world to fall in love with Tanzania."
+              <p className="text-lg md:text-xl font-serif text-safari-dark italic leading-snug">
+                "Pamoja Africa was born from a desire to turn meaningful journeys into lasting connections with nature, culture, and people."
               </p>
               <span className="mt-4 block text-sm font-bold text-safari-accent uppercase tracking-widest">
                 — Asheri Kiisay
@@ -58,22 +58,13 @@ export default function FounderStory() {
             </div>
 
             <p className="text-gray-600 font-light text-lg leading-relaxed mb-6">
-              Asheri grew up in the shadow of Kilimanjaro, watching foreign travelers arrive with wide eyes and leave forever changed. As a young guide in the Serengeti, he realized that luxury and authenticity were not opposites — they were a calling.
+             At the heart of Pamoja Africa’s journey is the vision of Asheri Kiisay, whose deep connection to Tanzania’s landscapes inspired something far greater than a place to stay. Growing up surrounded by the raw beauty of the country—from the misty highlands near Ngorongoro to the vast, open plains of the north—he developed a profound respect for nature, culture, and the stories carried within the land. What began as a quiet idea was never about building accommodation alone, but about creating meaningful experiences rooted in authenticity and belonging.
             </p>
             <p className="text-gray-600 font-light text-lg leading-relaxed mb-6">
-              In 2004, beneath the ancient canopy of a giant Baobab on the Serengeti plains, he pitched the first canvas of what would become Pamoja Africa. The name — <em>Pamoja</em>, meaning "Together" in Swahili — captured everything he believed: that guests, communities, and wildlife could thrive as one.
+             Driven by this vision, Asheri set out to create spaces where travelers could truly connect with the wild—not as distant observers, but as part of it. Pamoja Africa was founded on the belief that hospitality should go beyond comfort, blending simplicity with thoughtful luxury while honoring the environment and local communities. Each camp and lodge reflects this philosophy, offering guests an experience shaped by the rhythms of nature, the richness of Tanzanian culture, and a genuine sense of place.
             </p>
-            <p className="text-gray-600 font-light text-lg leading-relaxed mb-10">
-              Two decades on, that single tent has grown into seven iconic properties across Tanzania's most dramatic landscapes. But the philosophy hasn't changed one degree: every guest who arrives leaves as a lifelong ambassador for the wild places we are sworn to protect.
-            </p>
+    
 
-            {/* Signature */}
-            <div className="flex items-center gap-6 pt-6 border-t border-gray-100">
-              <div>
-                <p className="font-serif text-3xl text-safari-dark italic">Asheri Kiisay</p>
-                <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mt-1">Founder & Managing Director, Pamoja Africa</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

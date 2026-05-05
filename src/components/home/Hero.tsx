@@ -32,7 +32,7 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4 max-w-5xl mx-auto">
-        <h2 className="text-safari-gold font-sans tracking-[0.2em] uppercase text-sm md:text-base font-bold mb-4 animate-[fadeIn_1s_ease-out]">
+        <h2 className="text-safari-gold font-luxury text-4xl md:text-5xl mb-4 italic animate-[fadeIn_1s_ease-out]">
           Welcome to Pamoja Africa
         </h2>
         <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight animate-[slideUp_1s_ease-out_0.3s_both] text-shadow-lg">

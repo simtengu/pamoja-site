@@ -33,12 +33,12 @@ export function ContactHero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-safari-dark"></div>
       </motion.div>
 
-      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 max-w-4xl mx-auto pt-20">
+      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 max-w-5xl mx-auto pt-20">
         <motion.span 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-safari-gold tracking-[0.3em] font-bold uppercase text-xs md:text-sm mb-6"
+          className="text-safari-gold font-luxury text-4xl md:text-5xl mb-4 italic"
         >
           We Are Here
         </motion.span>
@@ -46,7 +46,7 @@ export function ContactHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl font-serif text-white mb-8 leading-tight"
+          className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-shadow-lg"
         >
           Get In Touch
         </motion.h1>
@@ -54,7 +54,7 @@ export function ContactHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-gray-300 font-light text-lg md:text-xl leading-relaxed max-w-2xl"
+          className="text-gray-200 text-base md:text-lg font-light max-w-2xl text-shadow-md"
         >
           Whether you're looking to craft a complete safari itinerary or just have questions about our luxury lodges, our dedicated concierge team is ready to assist you.
         </motion.p>

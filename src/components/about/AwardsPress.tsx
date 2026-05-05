@@ -57,7 +57,7 @@ export default function AwardsPress() {
             Awards & Press
           </h2>
           <p className="text-gray-500 font-light max-w-xl mx-auto text-lg">
-            Over two decades of excellence, recognised by the world's leading travel authorities.
+            Over a decade of excellence, recognised by the world's leading travel authorities.
           </p>
         </div>
 

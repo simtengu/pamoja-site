@@ -6,46 +6,52 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const team = [
   {
-    name: "Jackson Mrema",
-    role: "Head Safari Guide",
-    speciality: "Great Migration & Wildlife Tracking",
+    name: "Pamoja Serengeti Luxury Camp",
+    role: "Team",
+    speciality: "Serengeti National Park",
     image: "/images/team/team-one.jpg",
-    bio: "With 15+ years spent tracking the Serengeti, Jackson reads the land like a living map. His deep knowledge of animal behaviour has created thousands of unforgettable wildlife encounters.",
-    fact: "Ask me about the best spot to watch a cheetah hunt at dawn.",
   },
   {
-    name: "Sarah Jenkins",
-    role: "Operations Director",
-    speciality: "Luxury Guest Experience",
+    name: "Tarangire Luxury Hideaway",
+    role: "Team",
+    speciality: "Tarangire National Park",
     image: "/images/team/team-two.jpg",
-    bio: "Sarah orchestrates the seamless magic behind every Pamoja stay — from the perfectly chilled sundowner to the midnight campfire under a billion stars. No detail is too small.",
-    fact: "Ask me about how we keep fine dining running miles from the nearest town.",
   },
   {
-    name: "Chef Amadi",
-    role: "Executive Bush Chef",
-    speciality: "Farm-to-Table & Local Cuisine",
+    name: "Pamoja Farm Villas",
+    role: "Team",
+    speciality: "Karatu / Ngorongoro",
     image: "/images/team/team-three.jpg",
-    bio: "Amadi transforms Tanzanian ingredients into five-star menus served under the stars. His dishes are a love letter to the land — local, seasonal, and extraordinary.",
-    fact: "Ask me about our secret spice blend that guests try to smuggle home.",
   },
   {
-    name: "Neema Tarimo",
-    role: "Conservation Officer",
-    speciality: "Wildlife Protection & Community Liaison",
+    name: "Pamoja Migration Camp",
+    role: "Team",
+    speciality: "Northern Serengeti",
     image: "/images/team/team-four.jpeg",
-    bio: "Neema bridges the gap between conservation science and community prosperity. She oversees our anti-poaching partnerships and ensures every guest visit funds tangible conservation outcomes.",
-    fact: "Ask me about the lion pride we've been tracking for a decade.",
   },
   {
-    name: "Daniel Olekamai",
-    role: "Senior Maasai Cultural Guide",
-    speciality: "Cultural Heritage & Storytelling",
+    name: "Manyara Baobab Lodge",
+    role: "Team",
+    speciality: "Lake Manyara",
     image: "/images/team/team-five.jpg",
-    bio: "A Maasai elder and master storyteller, Daniel opens doors to a world that few outsiders ever witness — ancient traditions, star navigation, and the philosophy of living with the wild.",
-    fact: "Ask me about the night sky and how my ancestors used stars to find water.",
+  },
+  {
+    name: "Migration Undercanvas",
+    role: "Team",
+    speciality: "Mobile (Serengeti)",
+    image: "/images/team/serengeti-luxury-team.jpg",
+  },
+  {
+    name: "Pamoja Verdant Farm Villa",
+    role: "Team",
+    speciality: "Karatu Highlands",
+    image: "/images/team/villa-team.jpg",
   },
 ];
+
+const GENERAL_BIO = "The Pamoja experience is brought to life by our exceptional staff members who call these wild places home. From the moment you arrive until your final farewell, our teams at each property are dedicated to ensuring your comfort, safety, and a deep connection with the Tanzanian wilderness. They are the storytellers, the protectors, and the creators of the magic that happens every day in the bush.";
+
+const GENERAL_PHILOSOPHY = "Our people are our greatest asset. We invest in local talent, providing ongoing training and empowerment to ensure that the benefits of tourism are shared with the communities that surround our iconic destinations.";
 
 export default function TeamSection() {
   const [active, setActive] = useState(0);
@@ -100,7 +106,7 @@ export default function TeamSection() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-safari-dark/70 via-transparent to-transparent lg:hidden" />
-            {/* Role badge */}
+            {/* Location badge */}
             <div className="absolute top-6 left-6 bg-safari-gold text-safari-dark px-4 py-2 text-xs font-bold uppercase tracking-widest">
               {member.speciality}
             </div>
@@ -111,12 +117,12 @@ export default function TeamSection() {
             <h3 className="text-4xl font-serif text-safari-dark mb-2">{member.name}</h3>
             <span className="text-sm uppercase tracking-widest font-bold text-safari-accent mb-6 block">{member.role}</span>
             <div className="w-12 h-0.5 bg-safari-gold mb-8" />
-            <p className="text-gray-600 font-light text-lg leading-relaxed mb-8">{member.bio}</p>
+            <p className="text-gray-600 font-light text-lg leading-relaxed mb-8">{GENERAL_BIO}</p>
 
-            {/* Fun fact */}
+            {/* Philosophy instead of Fun Fact */}
             <div className="border-l-4 border-safari-gold pl-6 bg-safari-light py-4 pr-4">
-              <p className="text-sm font-bold text-safari-dark mb-1 uppercase tracking-widest">Fun Fact</p>
-              <p className="text-gray-600 font-light italic text-sm">{member.fact}</p>
+              <p className="text-sm font-bold text-safari-dark mb-1 uppercase tracking-widest">Our Philosophy</p>
+              <p className="text-gray-600 font-light italic text-sm">{GENERAL_PHILOSOPHY}</p>
             </div>
 
             {/* Dot navigation */}
@@ -133,7 +139,7 @@ export default function TeamSection() {
         </motion.div>
 
         {/* Thumbnail row */}
-        <div className="grid grid-cols-5 gap-3 mt-6">
+        <div className="grid grid-cols-4 md:grid-cols-7 gap-3 mt-6">
           {team.map((t, i) => (
             <button
               key={t.name}

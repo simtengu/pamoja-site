@@ -4,40 +4,40 @@ import { motion } from "framer-motion";
 
 const milestones = [
   {
-    year: "2004",
-    title: "The First Canvas",
-    body: "Beneath the canopy of an ancient Baobab in the Serengeti, Asheri Kiisay pitched the first tent of what would become Pamoja Africa — a single camp driven by passion and a deep love for the wild.",
-    image: "/images/baobab-2.jpeg",
+    year: "2015",
+    title: "Our First Property",
+    body: "Pamoja Africa opened its doors with Pamoja Serengeti Luxury Camp — our flagship property in the heart of the Serengeti. Born from Asheri Kiisay's dream of blending authentic wilderness with warm, thoughtful hospitality, this first camp set the standard for everything that followed.",
+    image: "/images/about/pamoja-luxury.jpg",
   },
   {
-    year: "2008",
-    title: "Tarangire & Conservation",
-    body: "The Tarangire Luxury Hideaway opened among colossal elephant herds, and Pamoja signed its first formal anti-poaching partnership — cementing conservation as a founding pillar of the business.",
-    image: "/images/tarangire-2.jpeg",
-  },
-  {
-    year: "2012",
-    title: "Community Roots",
-    body: "Pamoja Farm Villas launched in the Ngorongoro highlands, and the first community school funded by Pamoja opened its doors. The 'Together' in our name became a lived reality.",
-    image: "/images/pamoja-villa-3.jpeg",
-  },
-  {
-    year: "2016",
+    year: "2017–2018",
     title: "Following the Migration",
-    body: "Our mobile camp, Migration Undercanvas, began following the pulse of the Great Wildebeest Migration — offering guests an ever-changing front-row seat to one of Earth's greatest spectacles.",
+    body: "Pamoja launched two dedicated migration camps — Pamoja Migration Camp and Migration Undercanvas — positioned to follow the pulse of the Great Wildebeest Migration across the Serengeti ecosystem. For the first time, guests could experience the spectacle from an ever-changing front-row seat, moving with the herds season by season.",
     image: "/images/migration-3.jpeg",
   },
   {
-    year: "2020",
-    title: "Going Fully Solar",
-    body: "Every Pamoja property completed its transition to 100% solar power — a milestone that reduced our carbon footprint by over 2,400 tonnes annually and set the standard for eco-lodges across East Africa.",
-    image: "/images/serengeti-1.jpeg",
+    year: "2021–2023",
+    title: "More Properties Added",
+    body: "Pamoja continued to grow its footprint across Tanzania's most iconic landscapes. The Tarangire Luxury Hideaway was established among the iconic elephant herds of Tarangire, while Pamoja Farm Villas brought a highland retreat experience to the Ngorongoro region — each property carefully designed to reflect the character of its surroundings.",
+    image: "/images/tarangire-2.jpeg",
   },
   {
-    year: "2024",
-    title: "10,000 Guests & Beyond",
-    body: "We celebrated our 10,000th guest and 50,000 acres brought under conservation stewardship. The dream that started with one tent now spans seven iconic properties across northern Tanzania.",
-    image: "/images/pamoja1.jpg",
+    year: "2021",
+    title: "Community Support",
+    body: "As Pamoja grew, so did our commitment to the communities around us. We expanded our local workforce to over 120 employees — all Tanzanian — and launched 40+ training programs for guides, hospitality staff, and conservation workers. Five community projects were supported, including contributions to local schools and vocational training initiatives, ensuring that the benefits of tourism extended far beyond our camps.",
+    image: "/images/team/team-two.jpg",
+  },
+  {
+    year: "2023",
+    title: "80% Solar for All In-Park Properties",
+    body: "Pamoja made significant strides in sustainability, with all in-park properties transitioning to 80% solar-powered operations. Some of our bush camps and conservancy lodges now rely primarily on solar for lighting, hot water, and camp operations — reducing our environmental footprint and setting a new standard for responsible safari hospitality in East Africa.",
+    image: "/images/about/serengeti-luxury.jpg",
+  },
+  {
+    year: "2025",
+    title: "10,000 Guests & Counting",
+    body: "We celebrated a landmark milestone — welcoming our 10,000th guest. From first-time safari travellers to returning families, each guest has played a part in the Pamoja story. The dream that started with one tent now spans seven iconic properties across northern Tanzania, with more unforgettable journeys yet to come.",
+    image: "/images/about/guests.jpg",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function OurTimeline() {
             Our Journey
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-safari-dark">
-            Two Decades in the Wild
+            A Decade in the Wild
           </h2>
         </div>
 

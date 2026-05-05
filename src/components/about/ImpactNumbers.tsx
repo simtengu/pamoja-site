@@ -13,10 +13,10 @@ interface StatItem {
 const stats: StatItem[] = [
   { value: 10000, suffix: "+", label: "Guests Hosted", desc: "Lives touched by the Pamoja experience" },
   { value: 120, suffix: "+", label: "Local Employees", desc: "Tanzanian families supported year-round" },
-  { value: 50000, suffix: "+", label: "Acres Protected", desc: "Wildlife habitat under our stewardship" },
-  { value: 2400, suffix: "", label: "Tonnes CO₂ Offset", desc: "Annual carbon reduction across all camps" },
-  { value: 30, suffix: "+", label: "Patrol Units Supported", desc: "Anti-poaching missions co-funded annually" },
-  { value: 15, suffix: "", label: "Community Projects", desc: "Schools, clinics & water wells funded" },
+  { value: 40, suffix: "+", label: "Training Programs", desc: "For local guides & hospitality staff" },
+  { value: 200, suffix: "+", label: "Safaris Hosted", desc: "Unforgettable experiences shared" },
+  { value: 7, suffix: "", label: "Properties", desc: "Iconic camps and lodges across Tanzania" },
+  { value: 5, suffix: "+", label: "Community Projects", desc: "Supported schools, clinics & local initiatives" },
 ];
 
 function useCountUp(target: number, duration = 2000, active: boolean) {
@@ -98,7 +98,7 @@ export default function ImpactNumbers() {
             Our Impact
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
-            Two Decades of Meaningful Change
+            A Decade of Meaningful Change
           </h2>
           <p className="text-gray-400 font-light text-lg max-w-2xl mx-auto">
             Behind every sunrise game drive is a commitment to something larger — the land, the wildlife, and the people of Tanzania.

@@ -47,3 +47,7 @@ body {
 .hover-zoom:hover {
   transform: scale(1.05);
 }
+
+.font-luxury {
+  font-family: var(--font-luxury), cursive;
+}

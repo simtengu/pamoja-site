@@ -2,7 +2,7 @@ import AboutHero from "@/components/about/AboutHero";
 import FounderStory from "@/components/about/FounderStory";
 import ImpactNumbers from "@/components/about/ImpactNumbers";
 import OurTimeline from "@/components/about/OurTimeline";
-import { VisionMission, LocationsSection } from "@/components/about/AboutSections";
+import { VisionMission } from "@/components/about/AboutSections";
 import ImpactSection from "@/components/about/ImpactSection";
 import ValuesSection from "@/components/about/ValuesSection";
 import TeamSection from "@/components/about/TeamSection";
@@ -13,7 +13,7 @@ import Reviews from "@/components/home/Reviews";
 export const metadata = {
   title: "About Us | Pamoja Africa — Our Story, Our People, Our Impact",
   description:
-    "Learn about Pamoja Africa's two-decade journey across Tanzania's most iconic landscapes. Meet our founder Asheri Kiisay, discover our conservation impact, and meet the passionate team behind every safari.",
+    "Learn about Pamoja Africa's decade-long journey across Tanzania's most iconic landscapes. Meet our founder Asheri Kiisay, discover our conservation impact, and meet the passionate team behind every safari.",
 };
 
 export default function AboutPage() {
@@ -28,7 +28,7 @@ export default function AboutPage() {
       {/* 3. Impact Numbers — animated stats */}
       <ImpactNumbers />
 
-      {/* 4. Company Timeline — 2004 to 2024 */}
+      {/* 4. Company Timeline — 2015 to Present */}
       <OurTimeline />
 
       {/* 5. Vision & Mission */}
@@ -43,16 +43,13 @@ export default function AboutPage() {
       {/* 8. Team — interactive slider */}
       <TeamSection />
 
-      {/* 9. Our Properties — carousel */}
-      <LocationsSection />
-
-      {/* 10. Awards & Press */}
+      {/* 9. Awards & Press */}
       <AwardsPress />
 
-      {/* 11. CTA */}
+      {/* 10. CTA */}
       <AboutCTA />
 
-      {/* 12. Guest Reviews */}
+      {/* 11. Guest Reviews */}
       <Reviews />
     </div>
   );

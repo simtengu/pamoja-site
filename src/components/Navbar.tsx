@@ -20,7 +20,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "About Us", path: "/about" },
     { name: "Accommodations", path: "/accommodations" },
-    { name: "Safari & Trips", path: "/safari-trips" },
+    { name: "Experiences", path: "/safari-trips" },
     { name: "Offers", path: "/offers" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact Us", path: "/contact" },

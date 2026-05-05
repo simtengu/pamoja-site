@@ -1,35 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Leaf, Users, Globe } from "lucide-react";
+import { Star, Compass, Heart } from "lucide-react";
 
 const cards = [
   {
-    icon: Globe,
-    label: "Wildlife & Conservation",
-    stat: "50,000+ Acres",
-    statLabel: "Under Protection",
-    body: "We co-fund anti-poaching patrols and work alongside the African Wildlife Foundation to expand protected corridors across the Serengeti ecosystem. Every booking directly finances wildlife preservation.",
-    image: "/images/migration-1.jpeg",
+    icon: Star,
+    label: "Authentic Luxury",
+    stat: "7 Properties",
+    statLabel: "Across Northern Tanzania",
+    body: "From intimate canvas camps in the Serengeti to highland farm villas near Ngorongoro — each Pamoja property is designed to immerse you in the wild without compromising on comfort, cuisine, or care.",
+    image: "/images/about/pamoja-luxury.jpg",
+    color: "from-safari-dark/90",
+  },
+  {
+    icon: Compass,
+    label: "Professional Staff",
+    stat: "120+ Staff",
+    statLabel: "Trained & Certified",
+    body: "Our team is the backbone of every Pamoja experience. From certified wildlife guides with years of field expertise to warm, attentive camp staff — every person is rigorously trained, locally rooted, and deeply passionate about delivering an exceptional safari. You're never just in good hands; you're with the best.",
+    image: "/images/serengeti-2.jpeg",
     color: "from-emerald-900/90",
   },
   {
-    icon: Users,
-    label: "Community & People",
-    stat: "120+ Families",
-    statLabel: "Employed Year-Round",
-    body: "95% of our workforce is Tanzanian. We fund community schools, provide skills training, and source food directly from local farms — ensuring tourism dollars stay within the communities who call this land home.",
-    image: "/images/pamoja1.jpg",
+    icon: Heart,
+    label: "Happy Guests",
+    stat: "10,000+",
+    statLabel: "Satisfied Travellers",
+    body: "Guest satisfaction is at the heart of everything we do. The overwhelming majority of our travellers leave with memories they carry for life — and come back to share them. Our properties consistently earn glowing reviews on Google, TripAdvisor, and leading travel platforms, reflecting the standard of care we put into every single stay.",
+    image: "/images/about/guests.jpg",
     color: "from-amber-900/90",
-  },
-  {
-    icon: Leaf,
-    label: "Sustainability",
-    stat: "100% Solar",
-    statLabel: "Across All Properties",
-    body: "All seven of our camps run entirely on solar power. We use gravity-fed water systems, zero-plastic kitchens, and composting programs. Our target: full carbon neutrality by 2030.",
-    image: "/images/serengeti-2.jpeg",
-    color: "from-safari-dark/90",
   },
 ];
 
@@ -39,10 +39,10 @@ export default function ImpactSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-safari-gold tracking-[0.25em] font-bold uppercase text-xs mb-4 block">
-            Why It Matters
+            The Pamoja Difference
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-safari-dark">
-            Conservation at Our Core
+            Why Choose Pamoja
           </h2>
         </div>
 

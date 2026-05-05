@@ -18,7 +18,7 @@ const offers = [
     id: "safari-day-trip",
     title: "Safari Discovery Bonus",
     badge: "Exclusive",
-    description: "Book a 7-day Safari & Trips package and receive a complimentary private day trip to Lake Manyara or Arusha National Park for your entire group.",
+    description: "Book a 7-day Experiences package and receive a complimentary private day trip to Lake Manyara or Arusha National Park for your entire group.",
     validity: "Year-Round",
     benefits: ["Private expert guide", "Gourmet picnic lunch", "All entrance fees included"],
     image: "/images/tarangire-3.jpeg"
@@ -69,7 +69,7 @@ export default function OffersPage() {
           <motion.span 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             className="text-safari-gold tracking-[0.3em] font-bold uppercase text-xs mb-4"
+             className="text-safari-gold font-luxury text-4xl md:text-5xl mb-4 italic"
           >
             Exclusive Value
           </motion.span>
@@ -77,7 +77,7 @@ export default function OffersPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white text-4xl md:text-6xl font-serif mb-4"
+            className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-shadow-lg"
           >
             Special Offers
           </motion.h1>
@@ -85,7 +85,7 @@ export default function OffersPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-gray-300 font-light max-w-2xl mx-auto"
+            className="text-gray-200 text-base md:text-lg font-light max-w-2xl mx-auto text-shadow-md"
           >
             Unlock exclusive rates and curated experiences designed specifically for our direct guests.
           </motion.p>

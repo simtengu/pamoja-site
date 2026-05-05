@@ -34,7 +34,7 @@ export default function SafariHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-safari-gold tracking-[0.4em] font-bold uppercase text-xs md:text-sm mb-6"
+          className="text-safari-gold font-luxury text-4xl md:text-5xl mb-4 italic"
         >
           Unforgettable African Journeys
         </motion.span>
@@ -43,7 +43,7 @@ export default function SafariHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-8xl font-serif text-white mb-8 leading-[1.1]"
+          className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-shadow-lg"
         >
           Explore Tanzania with <br />
           <span className="text-safari-gold">Pamoja Africa Safaris</span>
@@ -53,7 +53,7 @@ export default function SafariHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-gray-200 font-light text-lg md:text-2xl leading-relaxed max-w-3xl mb-12"
+          className="text-gray-200 text-base md:text-lg font-light max-w-3xl mb-12 text-shadow-md"
         >
           Personalized safari experiences paired with our luxury lodge stays. Discover the heart of the wild with those who call it home.
         </motion.p>

@@ -1,14 +1,44 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
-const marqueeItems = [
-  "Est. 2004", "7 Luxury Properties", "Serengeti", "Ngorongoro", 
+const defaultMarqueeItems = [
+  "Est. 2015", "7 Luxury Properties", "Serengeti", "Ngorongoro", 
   "Tarangire", "Lake Manyara", "Northern Tanzania", "Ethical Luxury",
 ];
 
 export default function AboutHero() {
+  const [marqueeItems, setMarqueeItems] = useState<string[]>(defaultMarqueeItems);
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const q = query(
+          collection(db, "properties"),
+          where("isPublished", "==", true),
+          orderBy("priority", "asc")
+        );
+        const querySnapshot = await getDocs(q);
+        const propertiesData = querySnapshot.docs.map(doc => doc.data());
+        
+        if (propertiesData.length > 0) {
+          const propertyStrings = propertiesData.map(
+            (prop: any) => `${prop.name} - ${prop.region || "Tanzania"}`
+          );
+          setMarqueeItems(propertyStrings);
+        }
+      } catch (error) {
+        console.error("Error fetching properties for marquee:", error);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
   const scrollToContent = () => {
     window.scrollTo({ top: window.innerHeight * 0.8, behavior: "smooth" });
   };
@@ -23,7 +53,7 @@ export default function AboutHero() {
         className="absolute inset-0 w-full h-full"
       >
         <img
-          src="/images/serengeti-3.jpeg"
+          src="/images/about/solar.jpg"
           alt="Pamoja Africa Heritage"
           className="w-full h-full object-cover opacity-60"
         />
@@ -36,7 +66,7 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-safari-gold tracking-[0.35em] font-bold uppercase text-xs md:text-sm mb-6"
+          className="text-safari-gold font-luxury text-4xl md:text-5xl mb-4 italic"
         >
           The Pamoja Heritage
         </motion.span>
@@ -45,7 +75,7 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-[1.05]"
+          className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-shadow-lg"
         >
           Rooted in Africa. <br />
           <span className="text-safari-gold">Together.</span>
@@ -55,9 +85,9 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-gray-300 font-light text-lg md:text-xl leading-relaxed max-w-2xl"
+          className="text-gray-200 text-base md:text-lg font-light max-w-2xl text-shadow-md"
         >
-          For over two decades, Pamoja Africa has woven ethical luxury into the fabric of Tanzania's most untamed landscapes — honouring the land, the wildlife, and the people who call it home.
+          For a decade, Pamoja Africa has woven ethical luxury into the fabric of Tanzania's most untamed landscapes — honouring the land, the wildlife, and the people who call it home.
         </motion.p>
       </div>
 
@@ -66,7 +96,7 @@ export default function AboutHero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-20 left-0 right-0 z-20 overflow-hidden border-t border-b border-white/10 py-3 bg-black/30 backdrop-blur-sm"
+        className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden border-t border-b border-white/10 py-3 bg-black/30 backdrop-blur-sm"
       >
         <div className="flex animate-marquee whitespace-nowrap">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
@@ -84,7 +114,7 @@ export default function AboutHero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         onClick={scrollToContent}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 text-white focus:outline-none"
+        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 text-white focus:outline-none"
       >
         <ChevronDown className="w-7 h-7 opacity-60 hover:opacity-100 transition-opacity text-safari-gold animate-bounce" />
       </motion.button>
