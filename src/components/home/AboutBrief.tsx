@@ -27,7 +27,7 @@ export default function AboutBrief() {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          More than just safari accommodations — we offer a journey with purpose.
+          we offer a journey with purpose.
         </h2>
 
         <p
