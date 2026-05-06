@@ -11,9 +11,9 @@ export default function FounderStory() {
         {/* Left — Portrait */}
         <div className="relative w-full lg:w-[45%] h-[60vh] lg:h-auto overflow-hidden flex-shrink-0">
           <img
-            src="/images/team-1.jpg"
+            src="/images/about/founder.jpg"
             alt="Asheri Kiisay — Founder"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-center"
           />
           {/* Dark gradient overlay on right edge for blending */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white hidden lg:block" />

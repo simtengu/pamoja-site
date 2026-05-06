@@ -35,12 +35,10 @@ const awards = [
 ];
 
 const press = [
-  { name: "National Geographic", icon: "🌍" },
-  { name: "CNN Travel", icon: "📡" },
-  { name: "Condé Nast Traveler", icon: "✈️" },
-  { name: "BBC Earth", icon: "🎬" },
-  { name: "Forbes Travel", icon: "💼" },
-  { name: "Lonely Planet", icon: "🗺️" },
+  { name: "booking.com", logo: "/images/press/booking.png" },
+  { name: "google", logo: "/images/press/google.png" },
+  { name: "trip advisor", logo: "/images/press/tripadvisor.png" },
+  { name: "tra", logo: "/images/press/tra.png" },
 ];
 
 export default function AwardsPress() {
@@ -93,17 +91,23 @@ export default function AwardsPress() {
             <span className="text-xs uppercase tracking-[0.3em] font-bold text-gray-400">As Featured In</span>
             <Newspaper className="w-5 h-5 text-safari-gold" />
           </div>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             {press.map((p) => (
               <motion.div
                 key={p.name}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-2 px-6 py-3 border border-gray-200 hover:border-safari-gold hover:bg-safari-light transition-all duration-300 group cursor-default"
+                className="flex items-center gap-4 grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100"
               >
-                <span className="text-xl">{p.icon}</span>
-                <span className="text-sm font-bold text-gray-500 group-hover:text-safari-dark transition-colors tracking-wide">{p.name}</span>
+                <img 
+                  src={p.logo} 
+                  alt={p.name} 
+                  className="h-12 md:h-16 w-auto object-contain" 
+                />
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest hidden sm:inline-block">
+                  {p.name}
+                </span>
               </motion.div>
             ))}
           </div>

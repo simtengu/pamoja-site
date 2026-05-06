@@ -18,14 +18,11 @@ export default function Footer() {
               Creating unforgettable African experiences. We are a proud Tanzanian-owned collection of eco-conscious lodges and mobile camps, carefully placed in the most breathtaking regions.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="text-gray-400 hover:text-safari-gold transition-colors">
+              <a href="https://www.facebook.com/pamojaafricatz/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-safari-gold transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-safari-gold transition-colors">
+              <a href="https://www.instagram.com/pamoja_africa_lodges_and_camps/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-safari-gold transition-colors">
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-safari-gold transition-colors">
-                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -37,7 +34,7 @@ export default function Footer() {
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/accommodations" className="hover:text-white transition-colors">Accommodations</Link></li>
-              <li><Link href="/safari-trips" className="hover:text-white transition-colors">Safari Packages</Link></li>
+              <li><Link href="/safari-trips" className="hover:text-white transition-colors">Experiences</Link></li>
               <li><Link href="/faqs" className="hover:text-white transition-colors">FAQs</Link></li>
             </ul>
           </div>
@@ -52,7 +49,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 mr-3 text-safari-accent flex-shrink-0" />
-                <a href="tel:+255762000000" className="hover:text-white transition-colors">+255 762 000 000</a>
+                <a href="tel:+255767465557" className="hover:text-white transition-colors">+255 767 465 557</a>
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-safari-accent flex-shrink-0" />

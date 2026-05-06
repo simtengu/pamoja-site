@@ -40,7 +40,7 @@ export default function InquiryForm() {
                 </div>
                 <div>
                   <span className="text-xs text-gray-500 uppercase font-bold tracking-widest block mb-1">Call Us</span>
-                  <span className="text-lg font-light">+255 7XX XXX XXX</span>
+                  <span className="text-lg font-light">+255 767 465 557</span>
                 </div>
               </div>
 
@@ -50,19 +50,24 @@ export default function InquiryForm() {
                 </div>
                 <div>
                   <span className="text-xs text-gray-500 uppercase font-bold tracking-widest block mb-1">Email Us</span>
-                  <span className="text-lg font-light">safari@pamojaafrica.com</span>
+                  <span className="text-lg font-light">reservations@pamojaafricatz.com</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 group cursor-pointer">
+              <a 
+                href="https://wa.me/255767465557" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-6 group cursor-pointer"
+              >
                 <div className="p-4 bg-white/5 border border-white/10 rounded-full group-hover:bg-safari-gold group-hover:text-white transition-all">
                   <MessageCircle className="w-6 h-6 text-safari-gold group-hover:text-white" />
                 </div>
                 <div>
                   <span className="text-xs text-gray-500 uppercase font-bold tracking-widest block mb-1">WhatsApp</span>
-                  <span className="text-lg font-light underline decoration-safari-gold/30">Chat with a Specialist</span>
+                  <span className="text-lg font-light underline decoration-safari-gold/30 group-hover:text-safari-gold transition-colors">Chat with a Specialist</span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 

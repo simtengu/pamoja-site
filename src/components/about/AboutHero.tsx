@@ -68,7 +68,7 @@ export default function AboutHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-safari-gold font-luxury text-4xl md:text-5xl mb-4 italic"
         >
-          The Pamoja Heritage
+          Pamoja Africa Heritage
         </motion.span>
 
         <motion.h1

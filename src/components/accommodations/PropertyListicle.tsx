@@ -94,6 +94,7 @@ function ImageSlider({ photos, name }: { photos: string[]; name: string }) {
 
 export default function PropertyListicle() {
   const [properties, setProperties] = useState<Property[]>([]);
+  const [propertyTypes, setPropertyTypes] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -115,12 +116,25 @@ export default function PropertyListicle() {
           where("isPublished", "==", true),
           orderBy("priority", "asc")
         );
-        const snapshot = await getDocs(q);
+
+        const [snapshot, typesSnapshot] = await Promise.all([
+          getDocs(q),
+          getDocs(collection(db, "property-types"))
+        ]);
+
         const docs = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         })) as Property[];
         setProperties(docs);
+
+        const typesMap: Record<string, string> = {};
+        typesSnapshot.docs.forEach((doc) => {
+          const data = doc.data();
+          typesMap[doc.id] = data.title;
+          if (data.id) typesMap[data.id] = data.title;
+        });
+        setPropertyTypes(typesMap);
       } catch (err) {
         console.error("Failed to fetch properties:", err);
         setError("Failed to load accommodations. Please try again later.");
@@ -175,14 +189,22 @@ export default function PropertyListicle() {
       <div className="max-w-7xl mx-auto space-y-32">
 
         {properties.map((property, index) => {
-          const type = getPropertyType(property.name, property.amenities ?? []);
+          const firstCategoryId = property.categories?.[0];
+          const dynamicCategory = firstCategoryId ? propertyTypes[firstCategoryId] : null;
+          const type = dynamicCategory || getPropertyType(property.name, property.amenities ?? []);
           const icon = getPropertyIcon(property.name);
           const linkId = property.slug || property.id;
-          const visibleAmenities = (property.amenities ?? []).slice(0, 6);
-          const extraCount = Math.max(0, (property.amenities ?? []).length - 6);
-          const FALLBACK_DESCRIPTION =
-            "Famous for tree-climbing lions, this lodge hugs the rift valley escarpment with stunning lake views. Immersed in mahogany forests, it offers a dramatic and romantic setting unlike any other in northern Tanzania.";
-          const descriptionText = property.minDescription?.trim() || FALLBACK_DESCRIPTION;
+          const visibleAmenities = (property.amenities ?? []).slice(0, 10);
+          const extraCount = Math.max(0, (property.amenities ?? []).length - 10);
+          let descriptionText = property.minDescription?.trim() || "";
+          const maxLength = 320;
+          if (descriptionText.length > maxLength) {
+            const trimmed = descriptionText.substring(0, maxLength);
+            const lastSpaceIndex = trimmed.lastIndexOf(" ");
+            descriptionText = lastSpaceIndex > 0 
+              ? trimmed.substring(0, lastSpaceIndex) + "..."
+              : trimmed + "...";
+          }
 
           return (
             <div key={property.id} className="flex flex-col gap-12 lg:gap-20 items-center lg:flex-row">
@@ -294,20 +316,20 @@ export default function PropertyListicle() {
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <span className="text-safari-gold font-sans tracking-[0.2em] font-bold uppercase text-xs mb-4 block">
-              Not Sure Where To Start?
+              Not Sure Where To Stay?
             </span>
             <h3 className="text-4xl md:text-5xl font-serif mb-8">
-              Let Us Craft Your Ideal Safari
+              Find Your Perfect Accommodation
             </h3>
             <p className="text-gray-300 font-light text-lg mb-10">
-              Our travel design team can handpick the perfect combination of lodges and camps to
-              suit your dream itinerary and family requirements.
+              Our reservation experts can handpick the ideal lodge or camp to
+              suit your preferences and ensure an unforgettable stay.
             </p>
             <Link
               href="/contact"
               className="inline-block bg-safari-gold text-safari-dark hover:bg-white uppercase tracking-widest font-bold text-sm px-10 py-5 transition-all duration-300 rounded-sm shadow-xl"
             >
-              Contact Travel Experts
+              Contact Reservation Experts
             </Link>
           </div>
         </div>

@@ -115,8 +115,8 @@ export function ContactForm() {
               </div>
               <div>
                 <h4 className="text-sm font-bold uppercase tracking-widest text-safari-dark mb-2">Direct Lines</h4>
-                <p className="text-gray-600 font-light leading-relaxed mb-1">Reservations: +255 768 123 456</p>
-                <p className="text-gray-600 font-light leading-relaxed">Emergency: +255 784 987 654</p>
+                <p className="text-gray-600 font-light leading-relaxed mb-1">Mobile: +255 767 465 557</p>
+                <p className="text-gray-600 font-light leading-relaxed">Office: +255 784 465 556</p>
               </div>
             </div>
 
@@ -126,8 +126,9 @@ export function ContactForm() {
               </div>
               <div>
                 <h4 className="text-sm font-bold uppercase tracking-widest text-safari-dark mb-2">Electronic Mail</h4>
-                <p className="text-gray-600 font-light leading-relaxed mb-1">bookings@pamojaafrica.com</p>
-                <p className="text-gray-600 font-light leading-relaxed">support@pamojaafrica.com</p>
+                <p className="text-gray-600 font-light leading-relaxed mb-1">info@pamojaafricatz.com</p>
+                <p className="text-gray-600 font-light leading-relaxed mb-1">reservations@pamojaafricatz.com</p>
+                <p className="text-gray-600 font-light leading-relaxed">reservation1@pamojaafricatz.com</p>
               </div>
             </div>
           </div>
