@@ -156,7 +156,7 @@ export default function DetailsDataLoader({ id }: { id: string }) {
               typesMap={typesMap} 
               standardsMap={standardsMap} 
             />
-            <PropertyDining />
+            <PropertyDining propertyId={property.id} />
             <PropertyRules />
             <PropertyLocationMap property={property} />
           </div>

@@ -77,7 +77,7 @@ export function PropertyAmenities({ property }: { property?: Property }) {
 export function PropertyRules() {
   return (
     <div className="border-t border-gray-100 pt-16">
-      <h2 className="text-3xl font-serif text-safari-dark mb-10">Booking Rules</h2>
+      <h2 className="text-3xl font-serif text-safari-dark mb-10">Booking Guidelines</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="bg-safari-light p-8 rounded-sm">
           <h3 className="text-xl font-serif text-safari-dark mb-6">Check In</h3>

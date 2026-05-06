@@ -44,7 +44,7 @@ export default function DetailsVideoHero({ property, categories }: { property?: 
         <div className="flex flex-wrap items-center justify-center gap-4 text-white text-xs uppercase tracking-widest font-bold animate-[slideUp_1s_ease-out_0.6s_both]">
           <span>★ 5-Star Luxury</span>
           <span className="w-1 h-1 bg-white rounded-full"></span>
-          <span>Exclusive Hideaway</span>
+          <span>{property?.slogan}</span>
           
           {categories && categories.length > 0 && categories.map((cat, idx) => (
             <div key={idx} className="flex items-center gap-4">

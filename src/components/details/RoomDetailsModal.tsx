@@ -114,16 +114,18 @@ export default function RoomDetailsModal({ room, isOpen, onClose, propertyName, 
               <span className="text-safari-gold tracking-[0.2em] font-bold uppercase text-xs mb-2 block">
                 {propertyName} — {typesMap?.[room.type] || room.type}
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif text-safari-dark mb-4">{room.name}</h2>
-              <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-500 font-bold uppercase tracking-wider">
+              <h2 className="text-3xl md:text-4xl font-serif text-safari-dark mb-4">
+                {room.name} {room.number && <span className="text-safari-gold ml-2 italic font-sans font-bold opacity-80 text-2xl md:text-3xl">#{room.number}</span>}
+              </h2>
+              <div className="flex flex-wrap gap-x-6 gap-y-3 text-[11px] text-gray-500 font-medium uppercase tracking-[0.15em]">
                 {room.numberOfPeople && (
-                  <span className="flex items-center"><Users className="w-4 h-4 mr-2 text-safari-accent" /> Up to {room.numberOfPeople} Guests</span>
+                  <span className="flex items-center text-safari-dark/80"><Users className="w-4 h-4 mr-2 text-safari-gold" /> Up to {room.numberOfPeople} People</span>
                 )}
                 {room.beds && (
-                  <span className="flex items-center"><BedSingle className="w-4 h-4 mr-2 text-safari-accent" /> {room.beds}</span>
+                  <span className="flex items-center text-safari-dark/80"><BedSingle className="w-4 h-4 mr-2 text-safari-gold" /> Up to {room.beds} Beds</span>
                 )}
                 {room.standard && (
-                  <span className="flex items-center"><Wine className="w-4 h-4 mr-2 text-safari-accent" /> {standardsMap?.[room.standard] || room.standard} Standard</span>
+                  <span className="flex items-center text-safari-dark/80"><Wine className="w-4 h-4 mr-2 text-safari-gold" /> {standardsMap?.[room.standard] || room.standard} Standard</span>
                 )}
               </div>
             </div>
@@ -157,7 +159,7 @@ export default function RoomDetailsModal({ room, isOpen, onClose, propertyName, 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8">
                 {room.amenities.map((amenity, idx) => (
                   <div key={idx} className="flex items-center text-gray-600 font-light text-sm">
-                    <CheckCircle className="w-4 h-4 text-safari-accent mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-safari-gold mr-3 flex-shrink-0" />
                     {amenity}
                   </div>
                 ))}

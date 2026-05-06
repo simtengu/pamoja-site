@@ -47,30 +47,32 @@ export default function PropertyRooms({
               </div>
               
               <div className="w-full md:w-2/3 flex flex-col justify-center h-full">
-                <h3 className="text-2xl font-serif text-safari-dark mb-4">{room.name}</h3>
+                <h3 className="text-2xl font-serif text-safari-dark mb-4">
+                  {room.name} {room.number && <span className="text-safari-gold ml-2 text-xl italic font-sans font-bold opacity-80">#{room.number}</span>}
+                </h3>
                 
-                <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-sm text-gray-500 font-bold uppercase tracking-wider mb-6">
+                <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-[11px] text-gray-500 font-medium uppercase tracking-[0.15em] mb-6">
                   {room.numberOfPeople && (
-                    <span className="flex items-center"><Users className="w-4 h-4 mr-2 text-safari-accent" /> Up to {room.numberOfPeople}</span>
+                    <span className="flex items-center text-safari-dark/80"><Users className="w-4 h-4 mr-2 text-safari-gold" /> Up to {room.numberOfPeople} People</span>
                   )}
                   {room.beds && (
-                    <span className="flex items-center"><BedSingle className="w-4 h-4 mr-2 text-safari-accent" /> {room.beds}</span>
+                    <span className="flex items-center text-safari-dark/80"><BedSingle className="w-4 h-4 mr-2 text-safari-gold" /> Up to {room.beds} Beds</span>
                   )}
                   {room.standard && (
-                    <span className="flex items-center"><Wine className="w-4 h-4 mr-2 text-safari-accent" /> {standardsMap?.[room.standard] || room.standard} Standard</span>
+                    <span className="flex items-center text-safari-dark/80"><Wine className="w-4 h-4 mr-2 text-safari-gold" /> {standardsMap?.[room.standard] || room.standard} Standard</span>
                   )}
                   {room.type && (
-                    <span className="flex items-center"><Home className="w-4 h-4 mr-2 text-safari-accent" /> {typesMap?.[room.type] || room.type}</span>
+                    <span className="flex items-center text-safari-dark/80"><Home className="w-4 h-4 mr-2 text-safari-gold" /> {typesMap?.[room.type] || room.type}</span>
                   )}
                 </div>
 
                 <div className="flex justify-between items-center mt-auto border-t border-gray-200 pt-6">
-                  <span className="text-xl font-serif text-safari-dark">
-                    ${room.price} <span className="text-sm font-sans font-light text-gray-500">/ night</span>
+                  <span className="text-2xl font-serif text-safari-dark">
+                    ${room.price} <span className="text-sm font-sans font-light text-gray-400">/ night</span>
                   </span>
                   <button 
                     onClick={() => setSelectedRoom(room)}
-                    className="text-xs uppercase tracking-widest font-bold text-safari-dark border border-safari-dark hover:bg-safari-dark hover:text-white transition-colors px-6 py-3 rounded-sm"
+                    className="text-xs uppercase tracking-widest font-bold text-safari-dark border border-safari-dark hover:bg-safari-gold hover:border-safari-gold transition-all duration-300 px-6 py-3 rounded-sm shadow-sm"
                   >
                     View Details
                   </button>

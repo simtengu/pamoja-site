@@ -1,12 +1,16 @@
 "use client";
 
 import { Utensils, Coffee, Sun } from "lucide-react";
+import { detailedAmenities } from "@/data/amenities";
 
-export default function PropertyDining() {
+export default function PropertyDining({ propertyId }: { propertyId?: string }) {
+  const propertyData = detailedAmenities.find(d => d.propertyId === propertyId);
+  const diningImage = propertyData?.culinaryImage || "/images/dining.jpeg";
+
   return (
     <div className="border-t border-gray-100 pt-16">
       <h2 className="text-3xl font-serif text-safari-dark mb-10 flex items-center">
-        Dining & Culinary <Utensils className="ml-3 mt-1 text-safari-accent" />
+        Culinary & Service <Utensils className="ml-3 mt-1 text-safari-accent" />
       </h2>
       
       <div className="flex flex-col lg:flex-row gap-12 bg-safari-dark text-white p-8 md:p-12 rounded-sm shadow-2xl relative overflow-hidden">
@@ -21,9 +25,9 @@ export default function PropertyDining() {
               <Sun className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-xl font-serif mb-2">Farm-to-Table Breakfast</h3>
+              <h3 className="text-xl font-serif mb-2">Morning Delights</h3>
               <p className="text-gray-400 font-light text-sm leading-relaxed">
-                Start your day with freshly roasted single-origin coffee harvested right from our estate. Enjoy a full English breakfast or a tropical fruit spread overlooking the crater rim as the mist clears.
+                Begin your day with a vibrant selection of freshly brewed coffee, tropical fruits, and hearty breakfast options, thoughtfully prepared to energize you for the adventures ahead.
               </p>
             </div>
           </div>
@@ -33,9 +37,9 @@ export default function PropertyDining() {
               <Utensils className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-xl font-serif mb-2">The Plantation Restaurant</h3>
+              <h3 className="text-xl font-serif mb-2">Exceptional Cuisine</h3>
               <p className="text-gray-400 font-light text-sm leading-relaxed">
-                Our executive chef crafts a daily changing four-course menu utilizing organic vegetables grown on-site. The open-air setting ensures you never miss a sound of the African night.
+                Savor a fusion of local flavors and international dishes curated by talented chefs. Each meal is crafted with fresh ingredients, offering a culinary experience as memorable as your surroundings.
               </p>
             </div>
           </div>
@@ -45,9 +49,9 @@ export default function PropertyDining() {
               <Coffee className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-xl font-serif mb-2">High Tea & Sundowners</h3>
+              <h3 className="text-xl font-serif mb-2">Warm Hospitality & Service</h3>
               <p className="text-gray-400 font-light text-sm leading-relaxed">
-                After a dusty game drive, relax by the crackling fire pit with traditional Swahili bitings, premium gin & tonics, and an assortment of sweet treats as you watch the sunset.
+                Experience genuine, attentive service from the moment you arrive. Whether it's a refreshing sundowner after a long day or a personalized dining setup, every detail is handled with care.
               </p>
             </div>
           </div>
@@ -56,9 +60,12 @@ export default function PropertyDining() {
 
         <div className="w-full lg:w-1/2 relative z-10 group rounded-sm overflow-hidden h-64 lg:h-auto">
           <img 
-            src="/images/dining.jpeg" 
-            alt="Pamoja Farm Villa Dining" 
+            src={diningImage} 
+            alt="Property Culinary Experience" 
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1s]"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "/images/dining.jpeg";
+            }}
           />
         </div>
 
