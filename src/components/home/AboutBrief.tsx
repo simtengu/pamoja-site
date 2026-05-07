@@ -27,7 +27,7 @@ export default function AboutBrief() {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          we offer a journey with purpose.
+          We offer a journey with purpose.
         </h2>
 
         <p

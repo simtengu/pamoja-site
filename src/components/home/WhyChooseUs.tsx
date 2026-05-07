@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
             <div className="relative w-full aspect-[4/5] max-w-lg rounded-sm overflow-hidden shadow-2xl group">
               <img
                 src="/images/tarangire-6.jpeg"
-                alt="Pamoja Africa Wildlife Experience"
+                alt="Pamoja Africa Luxury Accommodations"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
               />
               <div className="absolute inset-0 bg-safari-dark/20 group-hover:bg-safari-dark/10 transition-colors"></div>
@@ -72,14 +72,14 @@ export default function WhyChooseUs() {
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              A Safari Experience Like No Other
+              Exquisite Properties & Exceptional Stays
             </h2>
             <p
               className="text-gray-600 font-light text-lg leading-relaxed mb-12"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              What sets us apart is our unwavering commitment to authentic experiences, exceptional personalized service, and sustainable tourism practices across Tanzania&apos;s most beautiful landscapes.
+              What sets us apart is our collection of unique properties, exceptional personalized service, and sustainable hospitality across Tanzania&apos;s most beautiful landscapes.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
