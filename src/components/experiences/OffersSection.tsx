@@ -21,7 +21,7 @@ const offers = [
     description: "Book a 7-day stay and receive a complimentary private day trip to Lake Manyara or Arusha National Park for your entire group.",
     validity: "Year-Round",
     benefits: ["Private expert guide", "Gourmet picnic lunch", "All entrance fees included"],
-    image: "/images/tarangire-3.jpeg"
+    image: "/images/experiences/safari-discovery-bonus.jpg"
   },
   {
     id: "honeymoon-bush-dinner",
@@ -30,7 +30,7 @@ const offers = [
     description: "Celebrate your love under the African stars. All honeymoon bookings of 3+ nights include a complimentary private sunset bush dinner in a remote location.",
     validity: "Seasonal (June - Oct)",
     benefits: ["Bottle of premium wine", "Maasai sunset cocktail", "Private waiter service"],
-    image: "/images/pamoja-villa-1.jpeg"
+    image: "/images/experiences/bush-experience.jpg"
   },
   {
     id: "early-bird-adventure",
@@ -65,7 +65,7 @@ export default function OffersSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} bg-white shadow-2xl rounded-sm overflow-hidden group`}
+              className="flex flex-col lg:flex-row-reverse bg-white shadow-2xl rounded-sm overflow-hidden group"
             >
               {/* Image Block */}
               <div className="w-full lg:w-1/2 relative h-[350px] lg:h-auto overflow-hidden">

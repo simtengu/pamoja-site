@@ -15,7 +15,7 @@ export function PropertyOverview({ property }: { property?: Property }) {
       <h2 className="text-3xl font-serif text-safari-dark mb-6">Overview</h2>
       {property.description ? (
         <div 
-          className="text-gray-600 font-light leading-relaxed text-lg mb-6 prose max-w-none"
+          className="text-gray-600 font-light leading-snug prose-p:leading-snug prose-p:my-2 text-lg mb-6 prose max-w-none break-words overflow-hidden"
           dangerouslySetInnerHTML={{ __html: property.description }}
         />
       ) : (
@@ -118,7 +118,7 @@ export function PropertyLocationMap({ property }: { property?: Property }) {
       <div className="w-full h-[500px] bg-gray-100 relative overflow-hidden rounded-sm border border-gray-200 shadow-inner group">
         {/* Interactive Map Component */}
         <div className="absolute inset-0 z-10 grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out">
-          <InteractiveMap />
+          <InteractiveMap focusedPropertyName={property?.name} />
         </div>
         
         {/* Location Label Overlay */}
@@ -140,6 +140,61 @@ export function PropertyLocationMap({ property }: { property?: Property }) {
             Get Driving Directions <CheckCircle className="w-4 h-4 ml-2" />
           </a>
         )}
+      </div>
+    </div>
+  );
+}
+
+import { Play } from "lucide-react";
+
+const extractYouTubeId = (urlOrId: string) => {
+  if (!urlOrId) return null;
+  // If it's already just an ID (usually 11 chars, no slashes or dots)
+  if (urlOrId.length === 11 && !urlOrId.includes("/") && !urlOrId.includes(".")) return urlOrId;
+  
+  const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i;
+  const match = urlOrId.match(regex);
+  return match ? match[1] : urlOrId; // fallback to original if no match found but it might be a weird format
+};
+
+export function PropertyVideoTour({ property }: { property?: Property }) {
+  const videoId = extractYouTubeId(property?.youtubeId || "");
+  
+  if (!videoId) return null;
+
+  return (
+    <div className="border-t border-gray-100 pt-24 pb-16">
+      <div className="text-center mb-16">
+        <span className="text-safari-gold font-bold tracking-[0.3em] uppercase text-[10px] mb-4 block">Cinematic Experience</span>
+        <h2 className="text-4xl md:text-5xl font-serif text-safari-dark">Full Property Tour</h2>
+        <div className="w-24 h-1 bg-safari-gold mx-auto mt-6"></div>
+        <p className="mt-8 text-gray-500 font-light max-w-2xl mx-auto italic">
+          "Take a virtual walkthrough of our sanctuary and immerse yourself in the beauty of {property?.name}."
+        </p>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="relative aspect-video rounded-sm overflow-hidden shadow-2xl group border border-gray-100 bg-black">
+          <iframe
+            className="w-full h-full"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&modestbranding=1`}
+            title={`${property?.name} - Full Property Tour`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+          
+          {/* Subtle overlay border */}
+          <div className="absolute inset-0 border-[1px] border-white/10 pointer-events-none group-hover:border-safari-gold/20 transition-colors duration-500" />
+        </div>
+        
+        <div className="mt-8 flex items-center justify-center gap-6">
+          <div className="h-[1px] bg-gray-100 flex-grow"></div>
+          <div className="flex items-center gap-3 text-safari-gold">
+            <Play className="w-4 h-4 fill-safari-gold" />
+            <span className="text-[10px] uppercase font-bold tracking-[0.4em]">Now Playing</span>
+          </div>
+          <div className="h-[1px] bg-gray-100 flex-grow"></div>
+        </div>
       </div>
     </div>
   );

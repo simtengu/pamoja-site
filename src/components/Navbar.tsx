@@ -26,7 +26,6 @@ export default function Navbar() {
   ];
 
   const moreLinks = [
-    { name: "Destinations", path: "/destinations" },
     { name: "FAQs", path: "/faqs" },
     { name: "Policies", path: "/policies" },
     { name: "News/Blog", path: "/news" },

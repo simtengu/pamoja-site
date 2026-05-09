@@ -33,6 +33,7 @@ export interface Property {
 
   isPublished: boolean;
   priority: number;
+  youtubeId?: string; // Optional YouTube ID for property tour video
 
   createdAt: Timestamp;
 }

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { Property } from "@/types/property";
-import { Room } from "@/types/room";
 import { Loader2, AlertCircle } from "lucide-react";
 import DetailsVideoHero from "./DetailsVideoHero";
 import DetailsContentLayout from "./DetailsContentLayout";
@@ -13,7 +12,8 @@ import {
   PropertyOverview, 
   PropertyAmenities, 
   PropertyRules, 
-  PropertyLocationMap 
+  PropertyLocationMap,
+  PropertyVideoTour
 } from "./Sections";
 import PropertyGallery from "./PropertyGallery";
 import PropertyRooms from "./PropertyRooms";
@@ -21,87 +21,59 @@ import PropertyDining from "./PropertyDining";
 
 export default function DetailsDataLoader({ id }: { id: string }) {
   const [property, setProperty] = useState<Property | null>(null);
-  const [rooms, setRooms] = useState<Room[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
-  const [typesMap, setTypesMap] = useState<Record<string, string>>({});
-  const [standardsMap, setStandardsMap] = useState<Record<string, string>>({});
   const [propertyCategories, setPropertyCategories] = useState<string[]>([]);
 
   useEffect(() => {
     async function fetchData() {
-      if (!id) return;
-      
       try {
         setLoading(true);
-        // Fetch property
+        setError(null);
+        
+        if (!id || id === "undefined") {
+          setError("No property identifier provided.");
+          setLoading(false);
+          return;
+        }
+
         let propData: Property | null = null;
         
-        // First try fetching by slug
+        // 1. Try fetching by slug
         const propQuerySlug = query(collection(db, "properties"), where("slug", "==", id));
         const propSnapshotSlug = await getDocs(propQuerySlug);
         
         if (!propSnapshotSlug.empty) {
           propData = { id: propSnapshotSlug.docs[0].id, ...propSnapshotSlug.docs[0].data() } as Property;
         } else {
-          // Fallback: try fetching by document ID
-          const propQueryId = query(collection(db, "properties"));
-          const propSnapshotId = await getDocs(propQueryId);
-          const doc = propSnapshotId.docs.find(d => d.id === id);
-          if (doc) {
-             propData = { id: doc.id, ...doc.data() } as Property;
+          // 2. Try fetching by document ID directly
+          const { doc, getDoc } = await import("firebase/firestore");
+          const propDocRef = doc(db, "properties", id);
+          const propDocSnap = await getDoc(propDocRef);
+          
+          if (propDocSnap.exists()) {
+             propData = { id: propDocSnap.id, ...propDocSnap.data() } as Property;
           }
         }
 
         if (!propData) {
-          setError("Property not found.");
+          setError(`Property with identifier "${id}" not found.`);
           setLoading(false);
           return;
         }
         
         setProperty(propData);
 
-        // Fetch published and active rooms for this property
-        const roomsQuery = query(
-          collection(db, "rooms"),
-          where("propertyId", "==", propData.id),
-          where("isPublished", "==", true),
-          where("isActive", "==", true)
-        );
-        const roomsSnapshot = await getDocs(roomsQuery);
-        const roomsData = roomsSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        })) as Room[];
-        
-        setRooms(roomsData);
-
         // Fetch reference data in parallel
-        const [typesSnap, standardsSnap, propTypesSnap] = await Promise.all([
-          getDocs(collection(db, "room-types")),
-          getDocs(collection(db, "room-standards")),
+        const [propTypesSnap] = await Promise.all([
           getDocs(collection(db, "property-types"))
         ]);
 
-        const tMap: Record<string, string> = {};
-        typesSnap.docs.forEach(d => {
-          tMap[d.id] = d.data().title || d.id;
-        });
-
-        const sMap: Record<string, string> = {};
-        standardsSnap.docs.forEach(d => {
-          sMap[d.id] = d.data().title || d.id;
-        });
-        
         const pMap: Record<string, string> = {};
         propTypesSnap.docs.forEach(d => {
           pMap[d.id] = d.data().title || d.id;
         });
 
-        setTypesMap(tMap);
-        setStandardsMap(sMap);
-        
         if (propData.categories && propData.categories.length > 0) {
           const resolvedCats = propData.categories.map(catId => pMap[catId] || catId);
           setPropertyCategories(resolvedCats);
@@ -151,13 +123,12 @@ export default function DetailsDataLoader({ id }: { id: string }) {
             <PropertyOverview property={property} />
             <PropertyAmenities property={property} />
             <PropertyRooms 
-              rooms={rooms} 
+              propertyId={property.id}
               propertyName={property.name} 
-              typesMap={typesMap} 
-              standardsMap={standardsMap} 
             />
             <PropertyDining propertyId={property.id} />
             <PropertyRules />
+            <PropertyVideoTour property={property} />
             <PropertyLocationMap property={property} />
           </div>
         }
