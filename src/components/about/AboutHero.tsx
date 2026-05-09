@@ -68,7 +68,7 @@ export default function AboutHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-safari-gold font-luxury text-4xl md:text-5xl mb-4 italic"
         >
-          Pamoja Africa Heritage
+          Pamoja Africa 
         </motion.span>
 
         <motion.h1
@@ -78,17 +78,17 @@ export default function AboutHero() {
           className="text-white text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-shadow-lg"
         >
           Rooted in Africa. <br />
-          <span className="text-safari-gold">Together.</span>
+          <span className="text-safari-gold text-3xl md:text-5xl lg:text-6xl">United By Nature.</span>
         </motion.h1>
 
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-gray-200 text-base md:text-lg font-light max-w-2xl text-shadow-md"
         >
           For a decade, Pamoja Africa has woven ethical luxury into the fabric of Tanzania's most untamed landscapes — honouring the land, the wildlife, and the people who call it home.
-        </motion.p>
+        </motion.p> */}
       </div>
 
       {/* Marquee ticker at bottom */}

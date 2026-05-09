@@ -1,9 +1,54 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Compass, Heart } from "lucide-react";
+import { Star, Compass, Heart, Leaf, Globe, Users } from "lucide-react";
 
 const cards = [
+  {
+    icon: Leaf,
+    label: "Conservation-Driven",
+    stat: "100%",
+    statLabel: "Eco-Friendly Practices",
+    body: "We operate with a deep respect for nature — using eco-friendly practices that conserve water, energy, and protect the land.",
+    image: "/images/about/luxury-nature.jpg",
+    color: "from-emerald-900/90",
+  },
+  {
+    icon: Compass,
+    label: "Professional Staff",
+    stat: "120+",
+    statLabel: "Trained & Certified Staff",
+    body: "Our team is the backbone of every Pamoja experience. From certified wildlife guides with years of field expertise to warm, attentive camp staff — every person is rigorously trained, locally rooted, and deeply passionate about delivering an exceptional safari. You're never just in good hands; you're with the best.",
+    image: "/images/team/professional-staffs.jpg",
+    color: "from-teal-900/90",
+  },
+  {
+    icon: Heart,
+    label: "Happy Guests",
+    stat: "10,000+",
+    statLabel: "Satisfied Travellers",
+    body: "Guest satisfaction is at the heart of everything we do. The overwhelming majority of our travellers leave with memories they carry for life — and come back to share them. Our properties consistently earn glowing reviews on Google, TripAdvisor, and leading travel platforms, reflecting the standard of care we put into every single stay.",
+    image: "/images/happy-clients.jpg",
+    color: "from-amber-900/90",
+  },
+  {
+    icon: Globe,
+    label: "Minimal Environmental Impact",
+    stat: "Wildlife-Respectful",
+    statLabel: "",
+    body: "All our accommodations are carefully designed to minimize their ecological footprint and blend harmoniously with nature. For instance, our mobile camps follow the Great Migration with minimal impact, offering close encounters with wildlife in their natural rhythm.",
+    image: "/images/about/solar.jpg",
+    color: "from-orange-900/90",
+  },
+  {
+    icon: Users,
+    label: "Community Focused",
+    stat: "Rooted",
+    statLabel: "In 'Pamoja'",
+    body: "Rooted in 'Pamoja', we empower local communities through employment, education, and sustainable development initiatives.",
+    image: "/images/about/local-community.jpg",
+    color: "from-blue-900/90",
+  },
   {
     icon: Star,
     label: "Authentic Luxury",
@@ -12,24 +57,6 @@ const cards = [
     body: "From intimate canvas camps in the Serengeti to highland farm villas near Ngorongoro — each Pamoja property is designed to immerse you in the wild without compromising on comfort, cuisine, or care.",
     image: "/images/about/pamoja-luxury.jpg",
     color: "from-safari-dark/90",
-  },
-  {
-    icon: Compass,
-    label: "Professional Staff",
-    stat: "120+ Staff",
-    statLabel: "Trained & Certified",
-    body: "Our team is the backbone of every Pamoja experience. From certified wildlife guides with years of field expertise to warm, attentive camp staff — every person is rigorously trained, locally rooted, and deeply passionate about delivering an exceptional safari. You're never just in good hands; you're with the best.",
-    image: "/images/serengeti-2.jpeg",
-    color: "from-emerald-900/90",
-  },
-  {
-    icon: Heart,
-    label: "Happy Guests",
-    stat: "10,000+",
-    statLabel: "Satisfied Travellers",
-    body: "Guest satisfaction is at the heart of everything we do. The overwhelming majority of our travellers leave with memories they carry for life — and come back to share them. Our properties consistently earn glowing reviews on Google, TripAdvisor, and leading travel platforms, reflecting the standard of care we put into every single stay.",
-    image: "/images/about/guests.jpg",
-    color: "from-amber-900/90",
   },
 ];
 

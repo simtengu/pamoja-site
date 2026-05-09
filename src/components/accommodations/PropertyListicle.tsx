@@ -251,7 +251,7 @@ export default function PropertyListicle() {
                   {property.region || property.address}
                 </span>
 
-                <h2 className="text-4xl md:text-5xl font-serif text-safari-dark mb-4 leading-tight">
+                <h2 className="text-2xl md:text-3xl font-serif text-safari-dark mb-4 leading-tight">
                   {property.name}
                 </h2>
 

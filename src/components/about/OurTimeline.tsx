@@ -57,44 +57,57 @@ export default function OurTimeline() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Centre line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-safari-gold/10 via-safari-gold/40 to-safari-gold/10 hidden md:block -translate-x-1/2" />
+          {/* Vertical line on the left (Desktop) */}
+          <div className="absolute left-0 md:left-[45%] top-0 bottom-0 w-px bg-gradient-to-b from-safari-gold/5 via-safari-gold/20 to-safari-gold/5 hidden md:block" />
 
-          <div className="space-y-20 md:space-y-0">
+          <div className="space-y-24">
             {milestones.map((m, i) => {
-              const isLeft = i % 2 === 0;
               return (
-                <div key={m.year} className="relative md:grid md:grid-cols-2 md:gap-16 md:items-center md:mb-20">
-
-                  {/* Gold dot on centre line */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-safari-gold border-4 border-white shadow-md z-10 hidden md:block" />
-
-                  {/* Content — alternates sides */}
+                <div key={m.year} className="relative md:grid md:grid-cols-[1fr,1.2fr] md:gap-20 md:items-start">
+                  
+                  {/* Image Column */}
                   <motion.div
-                    initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    className={`${isLeft ? "md:col-start-1 md:text-right" : "md:col-start-2 md:text-left"} mb-8 md:mb-0`}
-                  >
-                    <span className="inline-block text-5xl font-serif text-safari-gold/30 mb-2 leading-none">{m.year}</span>
-                    <h3 className="text-2xl font-serif text-safari-dark mb-3">{m.title}</h3>
-                    <p className="text-gray-500 font-light leading-relaxed text-base">{m.body}</p>
-                  </motion.div>
-
-                  {/* Image */}
-                  <motion.div
-                    initial={{ opacity: 0, x: isLeft ? 40 : -40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    className={`${isLeft ? "md:col-start-2" : "md:col-start-1 md:row-start-1"} overflow-hidden rounded-sm shadow-xl`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-2xl mb-8 md:mb-0 group"
                   >
                     <img
                       src={m.image}
                       alt={m.title}
-                      className="w-full h-64 object-cover hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-safari-dark/5 group-hover:bg-transparent transition-colors duration-500" />
+                  </motion.div>
+
+                  {/* Content Column */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="flex flex-col justify-center pt-2 md:pt-4 relative"
+                  >
+                    {/* Timeline indicator dot (Desktop) */}
+                    <div className="absolute -left-[calc(2.5rem+0.5px)] top-12 w-3 h-3 rounded-full bg-safari-gold shadow-[0_0_10px_rgba(193,155,110,0.5)] hidden md:block" />
+
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-4">
+                        <span className="text-4xl md:text-5xl font-serif text-safari-gold/40 leading-none">
+                          {m.year}
+                        </span>
+                        <div className="h-px flex-grow bg-gradient-to-r from-safari-gold/30 to-transparent" />
+                      </div>
+                      
+                      <h3 className="text-2xl md:text-3xl font-serif text-safari-dark tracking-tight">
+                        {m.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 font-light leading-relaxed text-lg max-w-xl">
+                        {m.body}
+                      </p>
+                    </div>
                   </motion.div>
                 </div>
               );

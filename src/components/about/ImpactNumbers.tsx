@@ -16,7 +16,7 @@ const stats: StatItem[] = [
   { value: 40, suffix: "+", label: "Training Programs", desc: "For local guides & hospitality staff" },
   { value: 200, suffix: "+", label: "Safaris Hosted", desc: "Unforgettable experiences shared" },
   { value: 7, suffix: "", label: "Properties", desc: "Iconic camps and lodges across Tanzania" },
-  { value: 5, suffix: "+", label: "Community Projects", desc: "Supported schools, clinics & local initiatives" },
+  { value: 150, suffix: "+", label: "Positive Reviews", desc: "Exceeding guest expectations through exceptional service" },
 ];
 
 function useCountUp(target: number, duration = 2000, active: boolean) {

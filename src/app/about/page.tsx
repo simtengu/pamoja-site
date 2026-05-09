@@ -1,12 +1,12 @@
 import AboutHero from "@/components/about/AboutHero";
 import FounderStory from "@/components/about/FounderStory";
+import AboutCompany from "@/components/about/AboutCompany";
 import ImpactNumbers from "@/components/about/ImpactNumbers";
 import OurTimeline from "@/components/about/OurTimeline";
 import { VisionMission } from "@/components/about/AboutSections";
 import ImpactSection from "@/components/about/ImpactSection";
 import ValuesSection from "@/components/about/ValuesSection";
 import TeamSection from "@/components/about/TeamSection";
-import AwardsPress from "@/components/about/AwardsPress";
 import AboutCTA from "@/components/about/AboutCTA";
 import Reviews from "@/components/home/Reviews";
 
@@ -24,6 +24,9 @@ export default function AboutPage() {
 
       {/* 2. Founder Story — Asheri Kiisay */}
       <FounderStory />
+
+      {/* About Company */}
+      <AboutCompany />
 
       {/* 3. Impact Numbers — animated stats */}
       <ImpactNumbers />
@@ -43,10 +46,7 @@ export default function AboutPage() {
       {/* 8. Team — interactive slider */}
       <TeamSection />
 
-      {/* 9. Awards & Press */}
-      <AwardsPress />
-
-      {/* 10. CTA */}
+      {/* 9. CTA */}
       <AboutCTA />
 
       {/* 11. Guest Reviews */}

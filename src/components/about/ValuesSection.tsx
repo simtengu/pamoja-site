@@ -1,35 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Leaf, Shield, Zap } from "lucide-react";
+import { Map, Users, Leaf, Trees } from "lucide-react";
 
 const values = [
   {
-    title: "Authentic Connection",
-    front: "We prioritize genuine interactions with nature and local cultures over superficial luxury.",
-    back: "Every safari is designed to strip away the noise of modern life — leaving you face-to-face with something ancient, wild, and real. No curated illusions. Only Tanzania.",
-    icon: Heart,
+    title: "Authentic Heritage",
+    front: "100% Tanzanian owned and deeply rooted in the land and its culture.",
+    back: "Every stay is designed to offer a genuine connection to Tanzanian life. No curated illusions—only authentic hospitality that honors our local roots.",
+    icon: Map,
     accent: "text-rose-400",
   },
   {
-    title: "Sustainable Heritage",
-    front: "Every step we take is measured against its impact on the environment and future generations.",
-    back: "100% solar power, zero-plastic kitchens, composting systems, and direct wildlife habitat funding. We believe luxury and responsibility are not trade-offs — they are inseparable.",
+    title: "Exceptional Hospitality",
+    front: "Hospitality is in our DNA. Our professional teams are dedicated to your comfort.",
+    back: "From arrival to departure, our on-site staff ensures every detail is perfect. You are not just a guest—you are part of the Pamoja family, welcomed home.",
+    icon: Users,
+    accent: "text-sky-400",
+  },
+  {
+    title: "Sustainable Luxury",
+    front: "We blend premium comfort with a deep responsibility toward the environment.",
+    back: "From 80% solar power to green initiatives, we believe that luxury and sustainability are inseparable. We protect the wilderness for future generations.",
     icon: Leaf,
     accent: "text-emerald-400",
   },
   {
-    title: "Tanzanian Warmth",
-    front: "Hospitality is in our DNA. We welcome every guest as part of the Pamoja family.",
-    back: "95% of our staff are local Tanzanians. Their warmth is not a product — it is a culture. When you arrive, you are not a guest. You are family, welcomed home.",
-    icon: Shield,
-    accent: "text-sky-400",
-  },
-  {
-    title: "Pioneering Spirit",
-    front: "We constantly innovate to improve our service while preserving the wild's integrity.",
-    back: "From mobile camps that follow the migration to solar-powered luxury tents, we push the boundaries of what ethical luxury can be — without ever disturbing the wilderness we protect.",
-    icon: Zap,
+    title: "Nature-Led Experiences",
+    front: "Discover the soul of Tanzania through immersive encounters at our doorstep.",
+    back: "Farm visits, serene landscapes, and authentic cultural moments. We innovate to enhance your stay while preserving the integrity of the natural world.",
+    icon: Trees,
     accent: "text-yellow-400",
   },
 ];
