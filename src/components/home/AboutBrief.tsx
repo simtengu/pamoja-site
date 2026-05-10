@@ -42,7 +42,7 @@ export default function AboutBrief() {
           {[
             { value: "15+", label: "Years Experience" },
             { value: "7",   label: "Luxury Properties" },
-            { value: "5",   label: "Destinations" },
+            { value: "120+",   label: "Local Employees" },
             { value: "10k+",label: "Happy Guests" },
           ].map((stat, i) => (
             <div

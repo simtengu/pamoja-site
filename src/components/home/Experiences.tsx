@@ -12,11 +12,11 @@ export default function Experiences() {
       title: "A Culinary Journey",
       subtitle: "Taste The Wild",
       desc: "Our master chefs blend international culinary techniques with the finest, freshest local Tanzanian ingredients. Whether it's a sunrise bush breakfast or a romantic candlelit dinner under a canopy of stars, every meal is designed to be an unforgettable event.",
-      image: "/images/dining.jpeg",
+      image: "/images/bonfire.jpg",
       highlights: [
         { name: "Swahili Bush Breakfast", detail: "Freshly baked pastries and eggs cooked over an open fire on the plains." },
-        { name: "Under The Stars Dining", detail: "A spectacular five-course tasting menu paired with premium South African wines." },
-        { name: "Traditional Boma Dinner", detail: "Authentic local barbecue with Maasai cultural storytelling and dances." }
+        { name: "Under The Stars Dining", detail: "A spectacular five-course tasting menu paired with premium  African wines." },
+        { name: " Bonfire Experience", detail: "Gather around the roaring fire for evening cocktails, traditional storytelling, and stargazing." }
       ]
     },
     pools: {

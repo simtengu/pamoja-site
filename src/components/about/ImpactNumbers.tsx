@@ -98,7 +98,7 @@ export default function ImpactNumbers() {
             Our Impact
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
-            A Decade of Meaningful Change
+            A Journey of Meaningful Change
           </h2>
           <p className="text-gray-400 font-light text-lg max-w-2xl mx-auto">
             Behind every sunrise game drive is a commitment to something larger — the land, the wildlife, and the people of Tanzania.

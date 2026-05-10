@@ -51,9 +51,9 @@ export default function HomeOffers() {
             <div className="absolute bottom-4 right-4 text-white font-serif text-xl">+</div>
           </div>
           <div className="bg-white p-10 flex flex-col justify-center min-h-[350px] order-2 lg:order-none border-l border-gray-50">
-            <h3 className="text-2xl font-serif text-safari-dark mb-4 leading-tight">Weddings Special Offer</h3>
+            <h3 className="text-2xl font-serif text-safari-dark mb-4 leading-tight">Honeymoon Special Offer</h3>
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-10">
-              Begin your journey together in the heart of Africa. Our wedding packages offer exclusive benefits and personalized services for your big day.
+              Celebrate your love with custom romantic setups. Enjoy premium services including beautiful floral arrangements, exquisite private dining, and fine wines tailored to make your honeymoon unforgettable.
             </p>
             <Link href="/offers" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
               Read More <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -75,9 +75,9 @@ export default function HomeOffers() {
 
           {/* Row 3 - Start */}
           <div className="bg-white p-10 flex flex-col justify-center min-h-[350px] order-5 lg:order-none">
-            <h3 className="text-2xl font-serif text-safari-dark mb-4 leading-tight">Free Glass of Wine</h3>
+            <h3 className="text-2xl font-serif text-safari-dark mb-4 leading-tight">Complimentary Wine</h3>
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-10">
-              Savor the flavors of Tanzania. Every dinner guest receives a complimentary glass of our house-selected premium South African wine.
+              Savor the flavors of our house-selected premium wines, offered complimentary during special occasions such as birthdays, honeymoons, or for large family gatherings.
             </p>
             <Link href="/offers" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
               Read More <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
