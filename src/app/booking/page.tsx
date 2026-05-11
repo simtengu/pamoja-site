@@ -52,7 +52,7 @@ export default function BookingPage() {
   return (
     <main className="min-h-screen bg-stone-50 pb-20">
       {/* Hero */}
-      <div className="relative h-[42vh] w-full overflow-hidden bg-stone-900">
+      <div className="relative h-[85vh] w-full overflow-hidden bg-stone-900">
         <motion.div
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
@@ -60,11 +60,11 @@ export default function BookingPage() {
           className="absolute inset-0"
         >
           <img
-            src="/images/tarangire-1.jpeg"
+            src="/images/booking-bg.jpeg"
             alt="Pamoja Africa Booking"
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-stone-50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/60" />
         </motion.div>
 
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 pt-20">
@@ -80,7 +80,7 @@ export default function BookingPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight"
+            className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight"
           >
             Book Your Pamoja Experience
           </motion.h1>
@@ -88,15 +88,15 @@ export default function BookingPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-white/60 text-sm max-w-sm font-light leading-relaxed"
+            className="text-white/70 text-base md:text-lg max-w-xl font-light leading-relaxed"
           >
-            A few simple steps and our team will take care of the rest.
+            A few simple steps to secure your luxury Tanzanian getaway. Our team is ready to curate every detail of your stay.
           </motion.p>
         </div>
       </div>
 
       {/* Step Indicator */}
-      <div className="max-w-7xl mx-auto px-4 -mt-6 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 -mt-32 relative z-20">
         <div className="bg-white rounded-sm shadow-xl px-6 py-5 mb-8">
           <StepIndicator
             currentStep={currentStep}
