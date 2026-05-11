@@ -9,20 +9,19 @@ export default function FounderStory() {
       <div className="flex flex-col lg:flex-row min-h-[85vh]">
 
         {/* Left — Portrait */}
-        <div className="relative w-full lg:w-[45%] h-[60vh] lg:h-auto overflow-hidden flex-shrink-0">
-          <img
-            src="/images/about/founder.jpg"
-            alt="Asheri Kiisay — Founder"
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Dark gradient overlay on right edge for blending */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white hidden lg:block" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent lg:hidden" />
+        <div className="relative w-full lg:w-[45%] h-[60vh] lg:h-auto flex-shrink-0 p-6 lg:p-12">
+          <div className="relative w-full h-full rounded-2xl overflow-hidden  ">
+            <img
+              src="/images/about/asheri-ceo.png"
+              alt="Asheri Kiisay — Founder"
+              className="w-full h-full object-cover object-center"
+            />
 
-          {/* Floating badge */}
-          <div className="absolute bottom-10 left-8 bg-safari-dark text-white px-6 py-4 hidden lg:block">
-            <p className="text-xs uppercase tracking-[0.2em] font-bold text-safari-gold mb-1">Founder & Director</p>
-            <p className="text-xl font-serif">Asheri Kiisay</p>
+            {/* Floating badge */}
+            <div className="absolute bottom-6 left-6 lg:bottom-10 lg:left-8 bg-safari-dark text-white px-6 py-4 hidden lg:block rounded-xl">
+              <p className="text-xs uppercase tracking-[0.2em] font-bold text-safari-gold mb-1">Founder & Director</p>
+              <p className="text-xl font-serif">Asheri Kiisay</p>
+            </div>
           </div>
         </div>
 

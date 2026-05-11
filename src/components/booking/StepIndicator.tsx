@@ -1,76 +1,92 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Compass, 
-  Calendar, 
-  MapPin, 
-  Package, 
-  User, 
-  CheckCircle2 
-} from "lucide-react";
+import { Check, Building2, CalendarDays, BedDouble, Sparkles, Users, ClipboardList } from "lucide-react";
 
-interface StepIndicatorProps {
+const STEPS = [
+  { label: "Property",    icon: Building2 },
+  { label: "Dates",       icon: CalendarDays },
+  { label: "Rooms",       icon: BedDouble },
+  { label: "Experiences", icon: Sparkles },
+  { label: "Guests",      icon: Users },
+  { label: "Review",      icon: ClipboardList },
+];
+
+interface Props {
   currentStep: number;
+  completedSteps: number[];
   onStepClick: (step: number) => void;
 }
 
-const steps = [
-  { icon: <Compass className="w-5 h-5" />, label: "Type" },
-  { icon: <Calendar className="w-5 h-5" />, label: "Dates" },
-  { icon: <MapPin className="w-5 h-5" />, label: "Details" },
-  { icon: <Package className="w-5 h-5" />, label: "Packages" },
-  { icon: <User className="w-5 h-5" />, label: "Personal" },
-  { icon: <CheckCircle2 className="w-5 h-5" />, label: "Review" }
-];
-
-export default function StepIndicator({ currentStep, onStepClick }: StepIndicatorProps) {
+export default function StepIndicator({ currentStep, completedSteps, onStepClick }: Props) {
   return (
-    <div className="w-full relative px-2 sm:px-6">
-      {/* Background Line */}
-      <div className="absolute top-1/2 left-0 w-full h-[2px] bg-gray-200 -translate-y-1/2 z-0 hidden sm:block"></div>
-      
-      {/* Progress Line */}
-      <motion.div 
-        initial={{ width: "0%" }}
-        animate={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
-        className="absolute top-1/2 left-0 h-[2px] bg-safari-gold -translate-y-1/2 z-0 hidden sm:block transition-all duration-500 ease-out"
-      />
-
-      <div className="relative z-10 flex justify-between items-center">
-        {steps.map((step, idx) => {
-          const stepNum = idx + 1;
-          const isActive = currentStep === stepNum;
-          const isCompleted = currentStep > stepNum;
+    <div className="w-full">
+      {/* Desktop — horizontal */}
+      <div className="hidden md:flex items-center justify-center gap-0">
+        {STEPS.map((step, idx) => {
+          const num = idx + 1;
+          const isDone = completedSteps.includes(num);
+          const isActive = currentStep === num;
+          const canClick = num === 1 || completedSteps.includes(num - 1);
+          const Icon = step.icon;
 
           return (
-            <div 
-              key={stepNum} 
-              className="flex flex-col items-center group"
-            >
+            <div key={num} className="flex items-center">
               <button
-                onClick={() => onStepClick(stepNum)}
-                disabled={!isCompleted && !isActive}
-                className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-500 border-2 
-                  ${isActive 
-                    ? "bg-safari-dark border-safari-gold text-safari-gold scale-110 shadow-lg" 
-                    : isCompleted 
-                      ? "bg-safari-gold border-safari-gold text-white" 
-                      : "bg-white border-gray-200 text-gray-400 cursor-not-allowed"}
-                `}
+                onClick={() => canClick && onStepClick(num)}
+                disabled={!canClick}
+                className={`flex flex-col items-center group transition-all duration-300 ${canClick ? "cursor-pointer" : "cursor-default opacity-40"}`}
               >
-                <div className="transition-transform group-hover:scale-110 duration-300">
-                  {step.icon}
+                <div className={`relative w-11 h-11 rounded-full flex items-center justify-center border-2 transition-all duration-300 shadow-sm
+                  ${isActive  ? "border-amber-600 bg-amber-600 text-white shadow-amber-200 shadow-lg scale-110"
+                  : isDone    ? "border-amber-600 bg-amber-600 text-white"
+                              : "border-gray-300 bg-white text-gray-400"}`}
+                >
+                  {isDone && !isActive
+                    ? <Check className="w-5 h-5 stroke-[2.5]" />
+                    : <Icon className="w-5 h-5" />
+                  }
+                  {isActive && (
+                    <motion.div
+                      layoutId="step-ring"
+                      className="absolute inset-[-4px] rounded-full border-2 border-amber-400/50"
+                    />
+                  )}
                 </div>
+                <span className={`mt-2 text-[10px] font-bold uppercase tracking-widest transition-colors duration-300
+                  ${isActive ? "text-amber-700" : isDone ? "text-amber-600" : "text-gray-400"}`}>
+                  {step.label}
+                </span>
               </button>
-              <span className={`mt-3 text-[10px] sm:text-xs font-bold uppercase tracking-widest hidden md:block
-                ${isActive ? "text-safari-dark" : isCompleted ? "text-safari-gold" : "text-gray-400"}
-              `}>
-                {step.label}
-              </span>
+
+              {/* Connector line */}
+              {idx < STEPS.length - 1 && (
+                <div className={`w-12 h-[2px] mx-1 transition-colors duration-500 ${completedSteps.includes(num) ? "bg-amber-600" : "bg-gray-200"}`} />
+              )}
             </div>
           );
         })}
+      </div>
+
+      {/* Mobile — compact pill */}
+      <div className="flex md:hidden items-center justify-center">
+        <div className="bg-white rounded-full shadow-md px-5 py-3 flex items-center gap-3">
+          {STEPS.map((_, idx) => {
+            const num = idx + 1;
+            const isDone = completedSteps.includes(num);
+            const isActive = currentStep === num;
+            return (
+              <div
+                key={num}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300
+                  ${isActive ? "bg-amber-600 scale-125" : isDone ? "bg-amber-400" : "bg-gray-200"}`}
+              />
+            );
+          })}
+          <span className="text-xs font-bold text-gray-500 ml-1">
+            {currentStep} / {STEPS.length} — {STEPS[currentStep - 1].label}
+          </span>
+        </div>
       </div>
     </div>
   );

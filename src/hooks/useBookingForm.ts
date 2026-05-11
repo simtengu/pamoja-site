@@ -2,44 +2,47 @@
 
 import { useState, useEffect } from "react";
 import { BookingData, initialBookingData } from "@/types/booking";
+import { submitBooking } from "@/lib/api/bookingService";
+
+const TOTAL_STEPS = 6;
+const STORAGE_KEY = "pamoja_booking_v2";
 
 export function useBookingForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<BookingData>(initialBookingData);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookingId, setBookingId] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  // Load from local storage on mount
+  // ── Persist draft ──────────────────────────────────────────────────────────
   useEffect(() => {
-    const saved = localStorage.getItem("pamoja_booking_draft");
-    if (saved) {
-      try {
-        setFormData(JSON.parse(saved));
-      } catch (e) {
-        console.error("Failed to load booking draft", e);
-      }
-    }
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) setFormData(JSON.parse(saved));
+    } catch { /* ignore */ }
   }, []);
 
-  // Save to local storage on change
   useEffect(() => {
-    localStorage.setItem("pamoja_booking_draft", JSON.stringify(formData));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
   }, [formData]);
 
+  // ── Form helpers ───────────────────────────────────────────────────────────
   const updateFormData = (data: Partial<BookingData>) => {
-    setFormData(prev => ({ ...prev, ...data }));
+    setFormData((prev) => ({ ...prev, ...data }));
   };
 
   const nextStep = () => {
-    if (currentStep < 6) {
-      setCompletedSteps(prev => prev.includes(currentStep) ? prev : [...prev, currentStep]);
-      setCurrentStep(prev => prev + 1);
+    if (currentStep < TOTAL_STEPS) {
+      setCompletedSteps((prev) =>
+        prev.includes(currentStep) ? prev : [...prev, currentStep]
+      );
+      setCurrentStep((prev) => prev + 1);
     }
   };
 
   const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(prev => prev - 1);
-    }
+    if (currentStep > 1) setCurrentStep((prev) => prev - 1);
   };
 
   const goToStep = (step: number) => {
@@ -48,21 +51,45 @@ export function useBookingForm() {
     }
   };
 
+  // ── Submit ─────────────────────────────────────────────────────────────────
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      const id = await submitBooking(formData);
+      setBookingId(id);
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (err) {
+      console.error("Booking submit failed:", err);
+      setSubmitError(
+        "Something went wrong while submitting your booking. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const resetForm = () => {
     setFormData(initialBookingData);
     setCompletedSteps([]);
     setCurrentStep(1);
-    localStorage.removeItem("pamoja_booking_draft");
+    setBookingId(null);
+    setSubmitError(null);
+    localStorage.removeItem(STORAGE_KEY);
   };
 
   return {
     currentStep,
     formData,
     completedSteps,
+    isSubmitting,
+    bookingId,
+    submitError,
     updateFormData,
     nextStep,
     prevStep,
     goToStep,
-    resetForm
+    handleSubmit,
+    resetForm,
   };
 }
