@@ -104,6 +104,15 @@ const experiencesData = [
     duration: "Half Day",
     included: ["Armed Ranger", "Forest Fees", "Bottled Water"],
     images: ["/images/experiences/elephant-caves-main-image.jpg", "/images/experiences/elephant-caves-1.jpg", "/images/experiences/elephant-caves-2.jpg", "/images/experiences/elephant-caves-3.jpg"],
+  },
+  {
+    id: "soccer-with-community",
+    title: "Soccer with Community",
+    properties: ["Pamoja Farm Villas", "Manyara Baobab Lodge", "Tarangire Luxury Hideaway", "Pamoja Verdant Farm Villa"],
+    description: "Connect with the local Tanzanian spirit through the beautiful game. Join residents and guests for a friendly match on a community pitch, where football becomes a universal language bridging cultures. A joyful, high-energy way to engage with the heart of the local community and create lasting memories beyond the bush.",
+    duration: "1-2 Hours",
+    included: ["Football Equipment", "Community Host", "Refreshments"],
+    images: ["/images/experiences/soccer-with-community.jpg"],
   }
 ];
 
@@ -252,7 +261,7 @@ export default function ExperiencesList() {
                       <Clock className="w-4 h-4 mr-2" /> {exp.duration}
                     </div>
                     <Link
-                      href={`/booking?experience=${encodeURIComponent(exp.title)}`}
+                      href={`/booking?experience=${exp.id}`}
                       className="w-full sm:w-auto px-8 py-4 bg-transparent border border-safari-dark text-safari-dark hover:bg-safari-dark hover:text-white text-xs font-bold uppercase tracking-widest text-center transition-all rounded-sm"
                     >
                       Inquire Now

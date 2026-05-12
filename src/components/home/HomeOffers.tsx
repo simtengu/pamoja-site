@@ -36,8 +36,8 @@ export default function HomeOffers() {
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-10">
               Experience the magic of the Savannah with an extended stay. Book three nights or more and enjoy a significant reduction on our standard rates.
             </p>
-            <Link href="/offers" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
-              Read More <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Link href="/booking?offer=stay-longer" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
+              Book & Claim Offer <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           <div className="h-[350px] overflow-hidden relative">
@@ -55,8 +55,8 @@ export default function HomeOffers() {
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-10">
               Celebrate your love with custom romantic setups. Enjoy premium services including beautiful floral arrangements, exquisite private dining, and fine wines tailored to make your honeymoon unforgettable.
             </p>
-            <Link href="/offers" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
-              Read More <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Link href="/booking?offer=honeymoon-dinner" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
+              Book & Claim Offer <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           <div className="h-[350px] overflow-hidden relative order-3 lg:order-none">
@@ -68,8 +68,8 @@ export default function HomeOffers() {
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-10">
               Rejuvenate your senses with our newly launched spa therapies. Book any stay this month and receive a complimentary signature treatment.
             </p>
-            <Link href="/offers" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
-              Read More <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Link href="/booking?offer=safari-day-trip" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
+              Book & Claim Offer <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
@@ -79,8 +79,8 @@ export default function HomeOffers() {
             <p className="text-gray-500 text-sm font-light leading-relaxed mb-10">
               Savor the flavors of our house-selected premium wines, offered complimentary during special occasions such as birthdays, honeymoons, or for large family gatherings.
             </p>
-            <Link href="/offers" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
-              Read More <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Link href="/booking?offer=early-bird" className="text-safari-gold uppercase tracking-[0.2em] text-[10px] font-bold hover:text-safari-dark transition-colors inline-flex items-center group">
+              Book & Claim Offer <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           <div className="h-[350px] overflow-hidden relative order-6 lg:order-none">
@@ -94,7 +94,7 @@ export default function HomeOffers() {
         {/* View All Button */}
         <div className="mt-20 text-center">
           <Link 
-            href="/offers" 
+            href="/experiences" 
             className="inline-flex items-center gap-3 bg-safari-gold text-safari-dark hover:bg-white transition-all px-12 py-5 rounded-sm font-bold uppercase tracking-[0.2em] text-xs shadow-2xl group"
           >
             Explore All Offers

@@ -73,7 +73,7 @@ export default function FAQsPage() {
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="/images/faqs-hero.jpg" 
+            src="/images/booking-bg.jpeg" 
             alt="Pamoja FAQs" 
             className="w-full h-full object-cover"
           />

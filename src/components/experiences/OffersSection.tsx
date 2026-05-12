@@ -40,6 +40,15 @@ const offers = [
     validity: "Valid for all 2026 stays",
     benefits: ["Secure your preferred dates", "Best room allocation", "Complimentary airport transfer"],
     image: "/images/migration-1.jpeg"
+  },
+  {
+    id: "circuit-discount",
+    title: "Circuit Discount",
+    badge: "Multi-Property",
+    description: "Experience the diversity of Pamoja Africa's collections. Enjoy a 5% discount when your booking includes stays at more than one of our luxury properties, regardless of the duration.",
+    validity: "Year-Round",
+    benefits: ["Stay at 2+ properties", "5% discount on all nights", "Seamless inter-property coordination"],
+    image: "/images/pamoja-villa-1.jpeg"
   }
 ];
 
@@ -99,7 +108,7 @@ export default function OffersSection() {
                     <Clock className="w-4 h-4 mr-2" /> {offer.validity}
                   </div>
                   <Link 
-                    href="/booking" 
+                    href={`/booking?offer=${offer.id}`} 
                     className="w-full sm:w-auto px-8 py-4 bg-safari-dark text-white hover:bg-safari-gold text-xs font-bold uppercase tracking-widest text-center transition-all rounded-sm shadow-xl"
                   >
                     Claim Offer

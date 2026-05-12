@@ -26,7 +26,7 @@ export function ContactHero() {
         className="absolute inset-0 w-full h-full"
       >
         <img
-          src="/images/tarangire-8.jpeg"
+          src="/images/tarangire-5.jpeg"
           alt="Contact Pamoja Africa"
           className="w-full h-full object-cover opacity-70"
         />
@@ -56,7 +56,7 @@ export function ContactHero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-gray-200 text-base md:text-lg font-light max-w-2xl text-shadow-md"
         >
-          Whether you're looking to craft a complete safari itinerary or just have questions about our luxury lodges, our dedicated concierge team is ready to assist you.
+          Whether you're looking to secure a stay at one of our luxury properties or have questions about our exclusive accommodations, our dedicated concierge team is ready to assist you.
         </motion.p>
       </div>
 
@@ -91,10 +91,10 @@ export function ContactForm() {
               Reach Out
             </span>
             <h2 className="text-4xl md:text-5xl font-serif text-safari-dark mb-6 leading-tight">
-              Let's Plan Your Journey
+              Refine Your Luxury Stay
             </h2>
             <p className="text-gray-600 font-light text-lg leading-relaxed mb-6 border-l-2 border-safari-accent pl-4">
-              Our reservations operate 24/7. Connect with our dedicated Tanzania-based experts to craft your ultimate adventure.
+              Our reservations operate 24/7. Connect with our dedicated Tanzania-based experts to finalize your accommodation details and secure your escape.
             </p>
           </div>
 
@@ -105,7 +105,7 @@ export function ContactForm() {
               </div>
               <div>
                 <h4 className="text-sm font-bold uppercase tracking-widest text-safari-dark mb-2">Head Office</h4>
-                <p className="text-gray-600 font-light leading-relaxed">Pamoja Africa House, Arusha<br/>PO BOX 4567, Tanzania</p>
+                <p className="text-gray-600 font-light leading-relaxed">Pamoja Africa<br/>PO BOX 293 Karatu, Tanzania</p>
               </div>
             </div>
 
@@ -129,6 +129,32 @@ export function ContactForm() {
                 <p className="text-gray-600 font-light leading-relaxed mb-1">info@pamojaafricatz.com</p>
                 <p className="text-gray-600 font-light leading-relaxed mb-1">reservations@pamojaafricatz.com</p>
                 <p className="text-gray-600 font-light leading-relaxed">reservation1@pamojaafricatz.com</p>
+              </div>
+            </div>
+
+            {/* Social Media Section */}
+            <div className="pt-6 border-t border-gray-100">
+              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4">Connect With Us</h4>
+              <div className="flex items-center gap-4">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white p-3 shadow-md rounded-full text-safari-dark hover:text-safari-gold transition-colors duration-300">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white p-3 shadow-md rounded-full text-safari-dark hover:text-safari-gold transition-colors duration-300">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="https://tiktok.com/@pamoja_africa_lodges" target="_blank" rel="noopener noreferrer" className="bg-white p-3 shadow-md rounded-full text-safari-dark hover:text-safari-gold transition-colors duration-300 flex items-center justify-center">
+                  <svg 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    className="w-5 h-5"
+                  >
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>

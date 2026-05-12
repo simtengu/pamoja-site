@@ -7,15 +7,40 @@ const policies = [
   {
     id: "booking",
     icon: <CreditCard className="w-6 h-6 text-safari-gold" />,
-    title: "Booking & Cancellation",
+    title: "Booking & Payment",
     content: (
       <div className="space-y-4 text-gray-600 font-light leading-relaxed">
+        <div className="space-y-2">
+          <p className="font-semibold text-safari-dark">Provisional Bookings:</p>
+          <p className="text-sm">Provisional bookings are held based on the lead time to travel:</p>
+          <ul className="list-disc pl-5 space-y-1 text-sm">
+            <li>21 days – Bookings made 120+ days prior</li>
+            <li>14 days – Bookings made 90+ days prior</li>
+            <li>7 days – Bookings made 60+ days prior</li>
+          </ul>
+        </div>
         <p>
-          To secure your reservation at any Pamoja Africa property, a 30% non-refundable deposit is required at the time of booking. The remaining balance must be settled 60 days prior to your arrival date.
+          A <strong>20% deposit</strong> is required upon confirmation. Final payment is due <strong>31 days prior</strong> to arrival. For bookings made within 31 days, full payment is required immediately.
         </p>
         <p>
-          Cancellations made up to 61 days before arrival forfeit the deposit. Cancellations made between 60 and 31 days prior incur a 50% cancellation fee. Cancellations made 30 days or less before arrival, as well as no-shows, will be charged 100% of the total booking cost. We strongly recommend purchasing comprehensive travel insurance.
+          Visa and MasterCard are accepted with a 5% transaction fee. Personal cheques are only accepted by prior arrangement.
         </p>
+      </div>
+    )
+  },
+  {
+    id: "cancellation",
+    icon: <Clock className="w-6 h-6 text-safari-gold" />,
+    title: "Cancellation Policy",
+    content: (
+      <div className="space-y-4 text-gray-600 font-light leading-relaxed">
+        <p>Charges apply for bookings reduced in numbers, length of stay, or fully cancelled:</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li><strong>60 days before arrival:</strong> 25% of the applicable rate.</li>
+          <li><strong>45 days before arrival:</strong> 50% of the applicable rate.</li>
+          <li><strong>30 days or less / No-show:</strong> 100% of the applicable rate.</li>
+        </ul>
+        <p className="text-sm italic">Pamoja Africa reserves the right to cancel reservations if full payment is not made within specified timelines.</p>
       </div>
     )
   },
@@ -87,10 +112,25 @@ const policies = [
     content: (
       <div className="space-y-4 text-gray-600 font-light leading-relaxed">
         <p>
-          We respect your privacy and are committed to protecting your personal data. Any personal information collected during your booking process or stay is used exclusively to enhance your experience and fulfill our hospitality obligations. 
+          We respect your privacy and are committed to protecting your personal data. Any personal information collected during your booking process or stay is used exclusively to enhance your experience.
         </p>
         <p>
-          Pamoja Africa will never sell or share your personal information with third parties for marketing purposes. For a complete overview of our data protection measures, please contact our administrative office.
+          Pamoja Africa will never sell or share your personal information with third parties for marketing purposes.
+        </p>
+      </div>
+    )
+  },
+  {
+    id: "liability",
+    icon: <Shield className="w-6 h-6 text-safari-gold" />,
+    title: "Liability & Agreement",
+    content: (
+      <div className="space-y-4 text-gray-600 font-light leading-relaxed">
+        <p>
+          Pamoja Africa Lodges shall not be held responsible for accident, personal injury, illness, loss, theft, or inconvenience experienced by any guest during their stay or any similar incident involving guests at our properties.
+        </p>
+        <p>
+          We reserve the right to renegotiate current rates to accommodate necessary increases or decreases. By confirming a booking, guests and agents agree to these terms and conditions.
         </p>
       </div>
     )
@@ -104,9 +144,9 @@ export default function PoliciesPage() {
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="/images/about/luxury-nature.jpg" 
+            src="/images/happy-clients.jpg" 
             alt="Pamoja Policies" 
-            className="w-full h-full object-cover object-bottom"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>

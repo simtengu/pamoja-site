@@ -18,6 +18,7 @@ const experiencesData = [
   { id: "coffee-banana-tour",    title: "Coffee & Banana Farm Tour",          properties: ["Pamoja Farm Villas", "Pamoja Verdant Farm Villa"],                                 image: "/images/experiences/coffee-farm-tour-1.jpg" },
   { id: "karatu-town-tour",      title: "Karatu Town & Market Tour",          properties: ["Pamoja Farm Villas"],                                                              image: "/images/experiences/karatu-town-1.jpg" },
   { id: "elephant-caves-trek",   title: "Elephant Caves & Endoro Waterfall",  properties: ["Pamoja Farm Villas"],                                                              image: "/images/experiences/elephant-caves-main-image.jpg" },
+  { id: "soccer-with-community", title: "Soccer with Community",             properties: ["Pamoja Farm Villas", "Manyara Baobab Lodge", "Tarangire Luxury Hideaway", "Pamoja Verdant Farm Villa"], image: "/images/experiences/soccer-with-community.jpg" },
 ];
 
 const offersData = [
@@ -25,6 +26,7 @@ const offersData = [
   { id: "safari-day-trip",   title: "Safari Discovery Bonus",        badge: "Exclusive",      image: "/images/experiences/safari-discovery-bonus.jpg", desc: "7-day stay — complimentary private day trip." },
   { id: "honeymoon-dinner",  title: "Romantic Bush Experience",      badge: "Honeymooners",   image: "/images/experiences/bush-experience.jpg",         desc: "3+ nights — private sunset bush dinner." },
   { id: "early-bird",        title: "Early Bird Safari Special",     badge: "Early Purchase", image: "/images/migration-1.jpeg",           desc: "Book 6 months ahead — 15% discount." },
+  { id: "circuit-discount",  title: "Circuit Discount",              badge: "Multi-Property", image: "/images/pamoja-villa-1.jpeg",        desc: "5% discount for bookings staying at 2+ properties." },
 ];
 
 interface Props {

@@ -17,7 +17,7 @@ export default function ExperiencesHero() {
         className="absolute inset-0"
       >
         <img 
-          src="/images/tarangire-8.jpeg" 
+          src="/images/experiences/lake-manyara-canoeing.jpg" 
           className="w-full h-full object-cover opacity-60" 
           alt="Pamoja Experiences" 
         />

@@ -44,7 +44,7 @@ export default function AvailabilityBar() {
           {/* Property Select */}
           <div className="relative flex flex-col justify-center border border-gray-200 rounded-sm p-3 hover:border-safari-accent transition-colors">
             <label className="text-xs uppercase text-gray-500 font-bold tracking-wider mb-1 flex items-center">
-              <MapPin className="w-3 h-3 mr-1" /> Destination
+              <MapPin className="w-3 h-3 mr-1" /> Accommodation
             </label>
             <div className="relative">
               <select 
@@ -116,7 +116,8 @@ export default function AvailabilityBar() {
           <div className="flex items-end">
             <button 
               type="submit" 
-              className="w-full h-[58px] bg-safari-dark text-white uppercase font-bold text-sm tracking-widest hover:bg-safari-gold transition-colors duration-300 rounded-sm"
+              disabled={!checkIn}
+              className={`w-full h-[58px] ${!checkIn ? 'bg-gray-300 cursor-not-allowed text-gray-500' : 'bg-safari-dark text-white hover:bg-safari-gold'} uppercase font-bold text-sm tracking-widest transition-colors duration-300 rounded-sm`}
             >
               Search
             </button>

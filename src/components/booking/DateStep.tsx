@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, CalendarDays, MousePointerClick, X } from "lucide-react";
 import { BookingData } from "@/types/booking";
@@ -177,6 +177,13 @@ export default function DateStep({ data, onUpdate, onNext, onPrev }: Props) {
   const [specificSet, setSpecificSet] = useState<Set<string>>(
     () => new Set(data.selectedDates)
   );
+
+  // Sync with props when they change (important for URL param initialization)
+  useEffect(() => {
+    if (data.checkinDate) setRangeStart(data.checkinDate);
+    if (data.checkoutDate) setRangeEnd(data.checkoutDate);
+    if (data.selectedDates.length > 0) setSpecificSet(new Set(data.selectedDates));
+  }, [data.checkinDate, data.checkoutDate, data.selectedDates]);
 
   const mode = data.dateMode;
 

@@ -1,6 +1,8 @@
 "use client";
 
+import { Suspense, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Loader2 } from "lucide-react";
 import { useBookingForm } from "@/hooks/useBookingForm";
 import StepIndicator from "@/components/booking/StepIndicator";
 import PropertyStep from "@/components/booking/PropertyStep";
@@ -11,7 +13,7 @@ import GuestStep from "@/components/booking/GuestStep";
 import SummaryStep from "@/components/booking/SummaryStep";
 import SummarySidebar from "@/components/booking/SummarySidebar";
 
-export default function BookingPage() {
+function BookingContent() {
   const {
     currentStep,
     formData,
@@ -26,6 +28,11 @@ export default function BookingPage() {
     handleSubmit,
     resetForm,
   } = useBookingForm();
+
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentStep]);
 
   const renderStep = () => {
     switch (currentStep) {
@@ -50,7 +57,35 @@ export default function BookingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-stone-50 pb-20">
+    <>
+      {/* ── Full-page loading backdrop ─────────────────────────────────── */}
+      <AnimatePresence>
+        {isSubmitting && (
+          <motion.div
+            key="loading-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-stone-900/85 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.35 }}
+              className="text-center px-8"
+            >
+              <div className="w-20 h-20 rounded-full border-4 border-amber-600/30 border-t-amber-500 animate-spin mx-auto mb-6" />
+              <h2 className="text-white font-serif text-2xl mb-2">Securing Your Reservation</h2>
+              <p className="text-white/60 text-sm font-light max-w-xs mx-auto">
+                Please wait while we save your booking and notify our reservations team…
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <main className="min-h-screen bg-stone-50 pb-20">
       {/* Hero */}
       <div className="relative h-[85vh] w-full overflow-hidden bg-stone-900">
         <motion.div
@@ -131,5 +166,18 @@ export default function BookingPage() {
         </div>
       </div>
     </main>
+    </>
+  );
+}
+
+export default function BookingPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-stone-50 flex items-center justify-center">
+        <div className="animate-pulse text-safari-dark font-serif text-xl italic">Preparing your booking experience...</div>
+      </div>
+    }>
+      <BookingContent />
+    </Suspense>
   );
 }
