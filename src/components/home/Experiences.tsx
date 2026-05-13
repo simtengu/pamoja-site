@@ -21,13 +21,15 @@ export default function Experiences() {
     },
     pools: {
       title: "Infinite Relaxation",
-      subtitle: "Oasis In The Dust",
+      subtitle: "Serenity with a View",
       desc: "After a thrilling game drive, nothing compares to slipping into the cool, crystal-clear waters of our infinity pools. Designed to blend seamlessly into the horizon, our pools offer the perfect vantage point to watch wildlife roam right past the lodge.",
       image: "/images/pamoja-villa-2.jpeg",
       highlights: [
-        { name: "Baobab Infinity Edge", detail: "Suspended over the rift valley, offering 180-degree sunset views." },
-        { name: "Private Plunge Pools", detail: "Exclusive temperature-controlled pools attached to our premium honeymoon villas." },
-        { name: "Poolside Service", detail: "Signature cocktails and light bites delivered directly to your sun lounger." }
+        { name: "Breathtaking Locations", detail: "Our properties are masterfully located to offer breathtaking panoramas, from lush ancient forests to the shimmering horizons of Lake Manyara." },
+      
+       
+        { name: "Private Plunge Pools", detail: "Exclusive modern  pools attached to our premium  villas." },
+    
       ]
     },
     wellness: {
@@ -36,7 +38,6 @@ export default function Experiences() {
       desc: "Embrace the healing rhythms of nature. Our wellness centers harness indigenous botanicals and ancient African massage techniques to soothe your body and soul after a long day of adventure in the bush.",
       image: "/images/massage.jpg",
       highlights: [
-        { name: "Marula Oil Massage", detail: "Deep tissue relaxation using organic, locally sourced Marula and Baobab oils." },
         { name: "In-Tent Treatments", detail: "Enjoy world-class spa therapies in the complete privacy of your luxury tent." },
         { name: "Sunrise Yoga", detail: "Guided meditation and yoga sessions available daily on our panoramic wooden decks." }
       ]

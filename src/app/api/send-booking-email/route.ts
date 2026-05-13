@@ -193,10 +193,10 @@ export async function POST(req: NextRequest) {
     const html = buildEmailHtml(data, bookingId);
 
     const { error } = await resend.emails.send({
-      from: "Pamoja Africa Bookings <onboarding@resend.dev>",
+       from: `Pamoja Africa Reservations <${process.env.NEXT_PUBLIC_SENDING_EMAIL}>`,
       // ── Test recipient — change to process.env.NEXT_PUBLIC_SENDING_EMAIL! in production
-      to: ["albertsimtengu@gmail.com"],
-      subject: `🏕️ New Booking Request — ${data.propertyName} | Ref: ${bookingId}`,
+      to: ["albertsimtengu@gmail.com","asherikiisay@pamojaafricatz.com"],
+      subject: `🏕️ New Booking Request TESTING — ${data.propertyName} | Ref: ${bookingId}`,
       html,
       replyTo: data.guestEmail,
     });
