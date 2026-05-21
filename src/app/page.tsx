@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import HomeOffers from "@/components/home/HomeOffers";
 import Reviews from "@/components/home/Reviews";
 import NewsBlog from "@/components/home/NewsBlog";
+import PropertiesHighlightTour from "@/components/home/PropertiesHighlightTour";
 import HomeGallery from "@/components/home/HomeGallery";
 
 export default function Home() {
@@ -42,6 +43,9 @@ export default function Home() {
 
       {/* Latest News & Blog */}
       <NewsBlog />
+      
+      {/* Properties Cinematic Video Highlights Tour */}
+      <PropertiesHighlightTour />
       
       {/* Gallery snippet */}
       <HomeGallery />
