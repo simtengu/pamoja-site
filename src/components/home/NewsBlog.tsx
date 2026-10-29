@@ -57,12 +57,12 @@ export default function NewsBlog() {
   return (
     <section className="py-24 bg-white px-4 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16">
           <div className="text-left max-w-2xl">
             <span className="text-safari-gold font-sans tracking-[0.2em] font-bold uppercase text-xs mb-4 block">
               News & Insights
             </span>
-            <h2 className="text-4xl md:text-5xl font-serif text-safari-dark leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-safari-dark leading-tight">
               Stories from the Bush
             </h2>
           </div>
@@ -98,7 +98,7 @@ export default function NewsBlog() {
                   <div className="absolute inset-0 bg-safari-dark/10 group-hover:bg-safari-dark/0 transition-colors"></div>
                 </div>
 
-                <div className="p-8 flex-grow flex flex-col relative bg-white transform group-hover:-translate-y-4 transition-transform duration-300 shadow-sm mx-4 -mt-8 rounded-sm">
+                <div className="p-6 sm:p-8 flex-grow flex flex-col relative bg-white transform group-hover:-translate-y-4 transition-transform duration-300 shadow-sm mx-4 -mt-8 rounded-sm">
                   
                   <div className="flex items-center justify-between text-xs text-gray-500 font-semibold mb-4 uppercase tracking-widest">
                     <span className="flex items-center"><Calendar className="w-3 h-3 mr-1 text-safari-accent" /> {formatDate(post.createdAt)}</span>

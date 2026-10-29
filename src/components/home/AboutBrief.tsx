@@ -38,7 +38,7 @@ export default function AboutBrief() {
           Rooted in the Swahili word <span className="italic">Pamoja</span>, meaning &ldquo;together,&rdquo; our philosophy reflects unity with the land, wildlife, and local communities. We are a proud Tanzanian-owned collection of eco-conscious lodges and mobile camps, carefully placed in the most breathtaking regions of northern Tanzania.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mt-8 mb-16 px-4 w-full">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 sm:gap-8 lg:gap-16 mt-8 mb-16 px-2 sm:px-4 w-full">
           {[
             { value: "15+", label: "Years Experience" },
             { value: "7",   label: "Luxury Properties" },
@@ -47,14 +47,14 @@ export default function AboutBrief() {
           ].map((stat, i) => (
             <div
               key={stat.label}
-              className="text-center group border-r border-gray-300 last:border-0 md:last:border-r-0"
+              className="text-center group border-r border-gray-300 even:border-r-0 md:even:border-r md:last:border-r-0 pr-2 sm:pr-0"
               data-aos="fade-up"
               data-aos-delay={300 + i * 80}
             >
-              <p className="text-4xl md:text-5xl font-serif text-safari-accent mb-2 group-hover:text-safari-gold transition-colors">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-serif text-safari-accent mb-2 group-hover:text-safari-gold transition-colors">
                 {stat.value}
               </p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 font-bold">{stat.label}</p>
+              <p className="text-[11px] sm:text-xs uppercase tracking-widest text-gray-500 font-bold">{stat.label}</p>
             </div>
           ))}
         </div>

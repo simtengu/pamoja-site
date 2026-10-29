@@ -59,14 +59,14 @@ export default function RoomsPreview() {
         </div>
 
         {/* Property Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10 md:mb-16">
           {loading ? (
             <div className="h-10 w-64 bg-gray-800 animate-pulse rounded-sm"></div>
           ) : properties.map(prop => (
             <button
               key={prop.id}
               onClick={() => setSelectedPropertyId(prop.id)}
-              className={`px-6 py-3 font-bold uppercase tracking-widest text-xs transition-colors rounded-sm ${
+              className={`px-4 py-2.5 sm:px-6 sm:py-3 font-bold uppercase tracking-widest text-[11px] sm:text-xs transition-colors rounded-sm ${
                 selectedPropertyId === prop.id 
                   ? "bg-safari-gold text-safari-dark" 
                   : "bg-transparent border border-gray-700 text-gray-300 hover:border-safari-gold hover:text-safari-gold"
@@ -123,7 +123,7 @@ export default function RoomsPreview() {
                             </div>
                           </div>
                           
-                          <div className="p-8 flex flex-col flex-grow">
+                          <div className="p-6 sm:p-8 flex flex-col flex-grow">
                             <h3 className="text-2xl font-serif mb-4 hover:text-safari-gold transition-colors cursor-default">
                               {room.title}
                             </h3>

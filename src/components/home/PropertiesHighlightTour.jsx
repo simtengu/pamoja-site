@@ -71,13 +71,13 @@ export default function PropertiesHighlightTour() {
           </div>
           
           {/* Bottom Now Playing Bar */}
-          <div className="mt-8 flex items-center justify-center gap-6">
-            <div className="h-[1px] bg-white/10 flex-grow max-w-[150px]"></div>
-            <div className="flex items-center gap-3 text-safari-gold">
-              <Play className="w-4 h-4 fill-safari-gold animate-pulse" />
-              <span className="text-[10px] uppercase font-bold tracking-[0.4em]">Properties Highlight Tour</span>
+          <div className="mt-8 flex items-center justify-center gap-3 sm:gap-6">
+            <div className="h-[1px] bg-white/10 flex-grow max-w-[60px] sm:max-w-[150px]"></div>
+            <div className="flex items-center gap-2 sm:gap-3 text-safari-gold">
+              <Play className="w-4 h-4 fill-safari-gold animate-pulse flex-shrink-0" />
+              <span className="text-[10px] uppercase font-bold tracking-[0.2em] sm:tracking-[0.4em]">Properties Highlight Tour</span>
             </div>
-            <div className="h-[1px] bg-white/10 flex-grow max-w-[150px]"></div>
+            <div className="h-[1px] bg-white/10 flex-grow max-w-[60px] sm:max-w-[150px]"></div>
           </div>
         </div>
 

@@ -83,50 +83,52 @@ export default function Reviews() {
         </div>
 
         {/* Right Side: Slider */}
-        <div className="flex-1 w-full relative h-[450px] sm:h-[400px]">
-          {reviews.map((review, index) => {
-            const isActive = index === activeIndex;
-            return (
-              <div 
-                key={review.id}
-                className={`absolute top-0 left-0 w-full h-full transition-all duration-700 ease-in-out ${
-                  isActive ? "opacity-100 translate-x-0 z-20" : "opacity-0 translate-x-12 z-0 pointer-events-none"
-                }`}
-              >
-                <div className="bg-white p-10 md:p-12 shadow-2xl rounded-sm border-t-4 border-safari-gold relative h-full flex flex-col">
-                  <Quote className="absolute top-6 right-8 w-16 h-16 text-safari-light -z-0 opacity-50" />
-                  
-                  <div className="flex items-center gap-1 mb-6 relative z-10">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-safari-gold text-safari-gold" />
-                    ))}
-                  </div>
-                  
-                  <p className="text-gray-600 font-light text-lg md:text-xl leading-relaxed mb-8 flex-grow relative z-10 italic">
-                    "{review.body}"
-                  </p>
-                  
-                  <div className="flex items-center justify-between border-t border-gray-100 pt-6 relative z-10">
-                    <div>
-                      <p className="font-serif text-safari-dark font-bold text-lg">{review.name}</p>
-                      <p className="text-xs text-gray-400 uppercase tracking-widest mt-1">{review.date}</p>
+        <div className="flex-1 w-full relative pb-10">
+          <div className="grid grid-cols-1">
+            {reviews.map((review, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <div 
+                  key={review.id}
+                  className={`col-start-1 row-start-1 w-full transition-all duration-700 ease-in-out ${
+                    isActive ? "opacity-100 translate-x-0 z-20" : "opacity-0 translate-x-8 z-0 pointer-events-none"
+                  }`}
+                >
+                  <div className="bg-white p-6 sm:p-10 md:p-12 shadow-2xl rounded-sm border-t-4 border-safari-gold relative h-full flex flex-col">
+                    <Quote className="absolute top-6 right-6 sm:right-8 w-12 h-12 sm:w-16 sm:h-16 text-safari-light -z-0 opacity-50" />
+                    
+                    <div className="flex items-center gap-1 mb-6 relative z-10">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-safari-gold text-safari-gold" />
+                      ))}
                     </div>
-                    <div className="w-10 h-10 flex-shrink-0">
-                      {review.source === "google" && (
-                        <img src="/images/google.png" alt="Google Review" className="w-full h-full object-contain" />
-                      )}
-                      {review.source === "tripadvisor" && (
-                        <img src="/images/tripadvisor.png" alt="TripAdvisor Review" className="w-full h-full object-contain" />
-                      )}
+                    
+                    <p className="text-gray-600 font-light text-base sm:text-lg md:text-xl leading-relaxed mb-8 flex-grow relative z-10 italic">
+                      "{review.body}"
+                    </p>
+                    
+                    <div className="flex items-center justify-between border-t border-gray-100 pt-6 relative z-10 gap-4">
+                      <div>
+                        <p className="font-serif text-safari-dark font-bold text-base sm:text-lg">{review.name}</p>
+                        <p className="text-xs text-gray-400 uppercase tracking-widest mt-1">{review.date}</p>
+                      </div>
+                      <div className="w-10 h-10 flex-shrink-0">
+                        {review.source === "google" && (
+                          <img src="/images/google.png" alt="Google Review" className="w-full h-full object-contain" />
+                        )}
+                        {review.source === "tripadvisor" && (
+                          <img src="/images/tripadvisor.png" alt="TripAdvisor Review" className="w-full h-full object-contain" />
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
           
           {/* Pagination Indicators */}
-          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-2">
             {reviews.map((_, index) => (
               <button
                 key={index}

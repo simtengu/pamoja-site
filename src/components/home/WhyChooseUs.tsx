@@ -38,9 +38,9 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
           {/* Left: Image */}
           <div className="flex-1 w-full flex justify-center relative" data-aos="fade-right">
@@ -53,14 +53,14 @@ export default function WhyChooseUs() {
               <div className="absolute inset-0 bg-safari-dark/20 group-hover:bg-safari-dark/10 transition-colors"></div>
               <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-safari-gold rounded-full z-[-1] opacity-50 blur-3xl"></div>
             </div>
-            <div className="absolute bg-white p-6 shadow-xl rounded-sm bottom-8 -left-8 md:left-0 z-10 w-64 border-l-4 border-safari-gold">
-              <p className="text-3xl font-serif text-safari-dark mb-1">10k+</p>
-              <p className="text-xs uppercase tracking-widest text-gray-500 font-bold">Happy Guests Globally</p>
+            <div className="absolute bg-white p-4 sm:p-6 shadow-xl rounded-sm bottom-4 sm:bottom-8 left-4 sm:left-0 z-10 w-56 sm:w-64 border-l-4 border-safari-gold">
+              <p className="text-2xl sm:text-3xl font-serif text-safari-dark mb-1">10k+</p>
+              <p className="text-[11px] sm:text-xs uppercase tracking-widest text-gray-500 font-bold">Happy Guests Globally</p>
             </div>
           </div>
 
           {/* Right: Content */}
-          <div className="flex-1">
+          <div className="flex-1 w-full">
             <span
               className="text-safari-gold font-sans tracking-[0.2em] font-bold uppercase text-xs mb-4 block"
               data-aos="fade-up"
@@ -68,25 +68,25 @@ export default function WhyChooseUs() {
               Why Choose Pamoja
             </span>
             <h2
-              className="text-4xl md:text-5xl lg:text-5xl font-serif text-safari-dark mb-8 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-serif text-safari-dark mb-6 sm:mb-8 leading-tight"
               data-aos="fade-up"
               data-aos-delay="100"
             >
               Exquisite Properties & Exceptional Stays
             </h2>
             <p
-              className="text-gray-600 font-light text-lg leading-relaxed mb-12"
+              className="text-gray-600 font-light text-base sm:text-lg leading-relaxed mb-10 sm:mb-12"
               data-aos="fade-up"
               data-aos-delay="200"
             >
               What sets us apart is our collection of unique properties, exceptional personalized service, and sustainable hospitality across Tanzania&apos;s most beautiful landscapes.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
               {reasons.map((reason, i) => (
                 <div
                   key={reason.id}
-                  className="flex flex-col group p-4 -m-4 rounded-sm hover:bg-safari-light transition-colors"
+                  className="flex flex-col group p-4 rounded-sm hover:bg-safari-light transition-colors"
                   data-aos="fade-up"
                   data-aos-delay={300 + i * 80}
                 >

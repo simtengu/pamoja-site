@@ -55,12 +55,12 @@ export default function AccommodationsList() {
   return (
     <section className="py-24 bg-white px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16">
           <div className="max-w-2xl" data-aos="fade-up">
             <span className="text-safari-gold tracking-[0.2em] font-bold uppercase text-xs mb-4 block">
               Our Properties
             </span>
-            <h2 className="text-4xl md:text-5xl font-serif text-safari-dark">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-safari-dark">
               Featured Accommodations
             </h2>
           </div>
@@ -105,7 +105,7 @@ export default function AccommodationsList() {
                 </div>
 
                 {/* Content Container */}
-                <div className="p-8 flex-grow flex flex-col relative bg-white transform group-hover:-translate-y-2 transition-transform duration-300 shadow-lg -mt-6 mx-4 mb-4 rounded-sm">
+                <div className="p-6 sm:p-8 flex-grow flex flex-col relative bg-white transform group-hover:-translate-y-2 transition-transform duration-300 shadow-lg -mt-6 mx-4 mb-4 rounded-sm">
                   <div className="flex justify-between items-start mb-2">
                     <p className="flex items-center text-xs tracking-wider text-gray-500 font-semibold uppercase">
                       <MapPin className="w-3 h-3 mr-1 text-safari-accent" /> {acc.region || "Tanzania"}

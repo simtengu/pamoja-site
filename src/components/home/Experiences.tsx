@@ -82,21 +82,21 @@ export default function Experiences() {
           />
         ))}
         {/* Overlay gradient for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-safari-dark/80 via-safari-dark/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-safari-dark/75 md:bg-transparent md:bg-gradient-to-r md:from-safari-dark/85 md:via-safari-dark/60 md:to-transparent"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 flex flex-col min-h-[700px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 md:py-24 flex flex-col min-h-[620px] md:min-h-[700px]">
         
         {/* Top Content Area */}
-        <div className="flex-1 w-full md:w-1/2 flex flex-col pr-0 md:pr-12 lg:pr-24">
+        <div className="flex-1 w-full md:w-2/3 lg:w-1/2 flex flex-col pr-0 md:pr-12 lg:pr-24">
           
           <span className="text-safari-gold font-sans tracking-[0.2em] font-bold uppercase text-xs mb-4 block animate-[fadeIn_0.5s_ease-out]">
             {activeContent.subtitle}
           </span>
-          <h2 key={`title-${activeTab}`} className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight animate-[slideUp_0.5s_ease-out]">
+          <h2 key={`title-${activeTab}`} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight animate-[slideUp_0.5s_ease-out]">
             {activeContent.title}
           </h2>
-          <p key={`desc-${activeTab}`} className="text-gray-300 font-light text-lg leading-relaxed mb-10 animate-[slideUp_0.6s_ease-out]">
+          <p key={`desc-${activeTab}`} className="text-gray-300 font-light text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 animate-[slideUp_0.6s_ease-out]">
             {activeContent.desc}
           </p>
 

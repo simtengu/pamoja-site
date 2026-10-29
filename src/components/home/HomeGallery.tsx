@@ -8,10 +8,10 @@ export default function HomeGallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const images = [
-    { src: "/images/pamoja-villa-2.jpeg", alt: "Pamoja Villa Dining", colSpan: "col-span-2 md:col-span-1", rowSpan: "row-span-2" },
+    { src: "/images/pamoja-villa-2.jpeg", alt: "Pamoja Villa Dining", colSpan: "col-span-2 md:col-span-1", rowSpan: "row-span-1 md:row-span-2" },
     { src: "/images/tarangire-5.jpeg", alt: "Tarangire Elephant", colSpan: "col-span-1", rowSpan: "row-span-1" },
     { src: "/images/serengeti-3.jpeg", alt: "Serengeti View", colSpan: "col-span-1", rowSpan: "row-span-1" },
-    { src: "/images/baobab-3.jpeg", alt: "Manyara Baobab Pool", colSpan: "col-span-2", rowSpan: "row-span-1" },
+    { src: "/images/baobab-3.jpeg", alt: "Manyara Baobab Pool", colSpan: "col-span-1 md:col-span-2", rowSpan: "row-span-1" },
     { src: "/images/migration-3.jpeg", alt: "Migration Tents", colSpan: "col-span-1", rowSpan: "row-span-1" }
   ];
 
@@ -65,7 +65,7 @@ export default function HomeGallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[600px] w-full">
+        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] sm:auto-rows-[240px] md:grid-rows-2 gap-3 sm:gap-4 md:h-[600px] w-full">
           {images.map((img, index) => (
             <div 
               key={index} 
