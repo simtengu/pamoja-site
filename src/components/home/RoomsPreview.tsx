@@ -118,9 +118,6 @@ export default function RoomsPreview() {
                               alt={room.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
                             />
-                            <div className="absolute top-4 right-4 bg-safari-dark/90 text-safari-gold px-3 py-1 text-[10px] uppercase font-bold tracking-widest rounded-sm border border-safari-gold/30">
-                              {room.standard}
-                            </div>
                           </div>
                           
                           <div className="p-6 sm:p-8 flex flex-col flex-grow">

@@ -61,7 +61,7 @@ export default function AccommodationsList() {
               Our Properties
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-safari-dark">
-              Featured Accommodations
+              Our Accommodations
             </h2>
           </div>
           <Link
@@ -87,7 +87,7 @@ export default function AccommodationsList() {
             return (
               <div
                 key={acc.id}
-                className="group flex flex-col h-full rounded-sm overflow-hidden bg-safari-light border border-gray-100 hover:shadow-xl transition-shadow duration-500 cursor-pointer"
+                className="group flex flex-col h-full rounded-sm overflow-hidden bg-safari-light border border-gray-100 hover:shadow-xl transition-shadow duration-500"
                 data-aos="fade-up"
                 data-aos-delay={index * 80}
               >
@@ -121,14 +121,15 @@ export default function AccommodationsList() {
                   <div className="flex justify-between items-center mt-auto">
                     <Link
                       href={`/accommodations/${acc.slug || acc.id}`}
-                      className="text-xs font-bold tracking-widest text-safari-dark uppercase hover:text-safari-gold flex items-center gap-1 group/btn"
+                      aria-label={`View details for ${acc.name}`}
+                      className="text-xs font-bold tracking-widest text-safari-dark uppercase hover:text-safari-gold flex items-center gap-1 group/btn after:content-[''] after:absolute after:inset-0 after:z-10"
                     >
                       View Details
                       <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
                     <Link
                       href={`/booking?property=${encodeURIComponent(acc.name)}`}
-                      className="text-white text-xs font-bold tracking-widest uppercase bg-safari-dark hover:bg-safari-gold px-4 py-2 rounded-sm transition-colors"
+                      className="relative z-20 text-white text-xs font-bold tracking-widest uppercase bg-safari-dark hover:bg-safari-gold px-4 py-2 rounded-sm transition-colors"
                     >
                       Book
                     </Link>

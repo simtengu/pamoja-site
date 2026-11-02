@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Filter, X, ChevronLeft, ChevronRight, Maximize2, LayoutGrid, Loader2 } from "lucide-react";
 import { fetchProperties } from "@/lib/api/bookingService";
 import { Property } from "@/types/property";
+import { detailedAmenities } from "@/data/amenities";
 
 // Transformed Image Structure
 interface GalleryItem {
@@ -12,6 +13,7 @@ interface GalleryItem {
   url: string;
   propertyName: string;
   propertyId: string;
+  caption?: string;
 }
 
 export default function GalleryPage() {
@@ -37,17 +39,50 @@ export default function GalleryPage() {
     loadData();
   }, []);
 
-  // Get items for the selected property only
+  // Get items for the selected property (including newly introduced room & suite images)
   const filteredItems = useMemo(() => {
     const prop = properties.find(p => p.id === selectedPropId);
-    if (!prop || !prop.photos || !Array.isArray(prop.photos)) return [];
-    
-    return prop.photos.map((photoUrl, idx) => ({
-      id: `${prop.id}-${idx}`,
-      url: photoUrl,
-      propertyName: prop.name,
-      propertyId: prop.id,
-    }));
+    if (!prop) return [];
+
+    const items: GalleryItem[] = [];
+    const seenUrls = new Set<string>();
+
+    if (Array.isArray(prop.photos)) {
+      prop.photos.forEach((photoUrl, idx) => {
+        if (photoUrl && !seenUrls.has(photoUrl)) {
+          seenUrls.add(photoUrl);
+          items.push({
+            id: `${prop.id}-photo-${idx}`,
+            url: photoUrl,
+            propertyName: prop.name,
+            propertyId: prop.id,
+            caption: "Property Highlight",
+          });
+        }
+      });
+    }
+
+    const amenityEntry = detailedAmenities.find(
+      a => a.propertyId === prop.id || a.name.toLowerCase() === prop.name.toLowerCase()
+    );
+    if (amenityEntry?.roomTypes) {
+      amenityEntry.roomTypes.forEach((room) => {
+        (room.images || []).forEach((imgUrl, idx) => {
+          if (imgUrl && !seenUrls.has(imgUrl)) {
+            seenUrls.add(imgUrl);
+            items.push({
+              id: `${prop.id}-room-${room.id}-${idx}`,
+              url: imgUrl,
+              propertyName: prop.name,
+              propertyId: prop.id,
+              caption: `${room.title} Room`,
+            });
+          }
+        });
+      });
+    }
+
+    return items;
   }, [properties, selectedPropId]);
 
   const currentItem = modalIndex !== null ? filteredItems[modalIndex] : null;
@@ -74,7 +109,7 @@ export default function GalleryPage() {
           transition={{ duration: 1.5 }}
           className="absolute inset-0"
         >
-          <img src="/images/migration-1.jpeg" className="w-full h-full object-cover opacity-60" alt="Pamoja Gallery" />
+          <img src="/images/rooms/hideaway-double-1.jpg" className="w-full h-full object-cover opacity-60" alt="Pamoja Gallery" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-safari-dark/30"></div>
         </motion.div>
         
@@ -146,17 +181,20 @@ export default function GalleryPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.5 }}
+                    onClick={() => setModalIndex(index)}
                     className="relative aspect-[4/5] bg-gray-200 group cursor-pointer overflow-hidden shadow-xl rounded-sm"
                   >
                     <img 
                       src={item.url} 
-                      alt={item.propertyName} 
+                      alt={item.caption ? `${item.propertyName} — ${item.caption}` : item.propertyName} 
                       className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" 
                     />
                     
                     {/* Overlay Info */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
-                      <span className="text-safari-gold text-[10px] uppercase font-bold tracking-widest mb-2 block">Property</span>
+                      <span className="text-safari-gold text-[10px] uppercase font-bold tracking-widest mb-2 block">
+                        {item.caption || "Property"}
+                      </span>
                       <h4 className="text-white text-xl font-serif mb-4">{item.propertyName}</h4>
                       
                       <button 
@@ -217,7 +255,9 @@ export default function GalleryPage() {
               </div>
 
               <div className="text-center">
-                 <span className="text-safari-gold text-xs uppercase font-bold tracking-widest">Property</span>
+                 <span className="text-safari-gold text-xs uppercase font-bold tracking-widest">
+                   {currentItem.caption || "Property"}
+                 </span>
                  <h2 className="text-white text-2xl md:text-3xl font-serif mt-2 mb-4">{currentItem.propertyName}</h2>
               </div>
 
